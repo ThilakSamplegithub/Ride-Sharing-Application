@@ -6,11 +6,12 @@ function Footer() {
     <div>
       <footer className="footer">
         <div className="logo">
-          <img
+          {/* <img
             className="logo"
-            src="https://raw.githubusercontent.com/Elson0509/uber-homepage-clone/main/imgs/logo.webp"
-            alt="Uber Logo"
-          />
+            // src="https://raw.githubusercontent.com/Elson0509/uber-homepage-clone/main/imgs/logo.webp"
+            src=""
+            alt=""
+          /> */}
         </div>
         <div>
           <a href="#" className="footer-visit-link">
