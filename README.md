@@ -1,70 +1,39 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project Title
 
-## Available Scripts
+RideShare
 
-In the project directory, you can run:
+# Project Description
 
-### `npm start`
+Our ride-share app connects passengers with nearby drivers for convenient and affordable travel. With a user-friendly interface, passengers can easily request rides, view driver profiles, and track their journey in real-time. Drivers benefit from flexible earning opportunities and a built-in navigation system. Safety is a priority, as all drivers undergo thorough background checks, and users can share trip details with trusted contacts. Experience the future of transportation with our seamless and efficient ride-share platform
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🔗 Links
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This Website is live and deployed on Netlify.
+By visiting the provided Netlify link, users can directly access and explore the HealthConnect website.
 
-### `npm test`
+[![netflify](https://img.shields.io/badge/netflify-blue?style=for-the-badge&logo=netflify&logoColor=white)](https://startling-mermaid-fc7ad8.netlify.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- User Registration: Allows users to create new accounts by providing their email and setting a password.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- User Login: Provide a login system where registered users can sign in with their credentials.
 
-### `npm run eject`
+# Appendix
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Although the following features were not implemented in the current version, they could have further enhanced the functionality of SoundWave:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+JSON Web Tokens: JSON Web Tokens (JWT) provide a secure method for authentication and authorization in web applications. By implementing JWT in SoundWave, the system could have enhanced user authentication, ensuring secure access to user profiles and preventing unauthorized access to sensitive information.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Passport: By integrating Passport into SoundWave, the system could have provided simple and unobtrusive authentication for users, allowing for a seamless login and registration process.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Multilingual Support: support of multiple languages to cater to a diverse user base.
 
-## Learn More
+Feedback and Ratings: Users should have the option to provide feedback and ratings for their overall experience.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+User profile functionalities: Users can create and manage their profiles, including personal information, order history, and payment details.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I hope to incoroporate these features in future.
