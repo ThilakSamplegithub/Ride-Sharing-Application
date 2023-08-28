@@ -7,6 +7,7 @@ import {
   IconButton,
   Button,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 
 const RideRequestForm = () => {
@@ -117,14 +118,14 @@ const RideRequestForm = () => {
           marginRight={10}
         />
       </InputGroup>
-      <Button
+      <Link to="/pass"><Button
         mt={4}
         colorScheme="teal"
         size="lg"
         onClick={handleRequestNow}
       >
         Request Now
-      </Button>
+      </Button></Link>
     </Box>
   );
 };

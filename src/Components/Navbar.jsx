@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import NineDotsIcon from "../Icons/NineDots";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -143,7 +144,7 @@ const Navbar = () => {
           </MenuItem>
         </MenuList>
       </Menu>
-      <Button
+      <Link to="/login"><Button
         colorScheme="teal"
         mr={2}
         fontSize={15}
@@ -153,8 +154,8 @@ const Navbar = () => {
         borderRadius={50}
       >
         Login
-      </Button>
-      <Button
+      </Button></Link>
+      <Link to="/signup"><Button
         colorScheme="teal"
         mr={2}
         fontSize={15}
@@ -164,7 +165,7 @@ const Navbar = () => {
         borderRadius={50}
       >
         Sign Up
-      </Button>
+      </Button></Link>
     </Flex>
   );
 };

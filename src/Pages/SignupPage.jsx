@@ -15,7 +15,7 @@ import {
   Text,
   useColorModeValue,
   Link,
-  Select,
+  Select,useToast
 } from "@chakra-ui/react";
 import { handleRegister } from "../Redux/Passenger/actions";
 import { useState, useReducer } from "react";
@@ -71,6 +71,7 @@ const reducer = (state = initialState, { type, payload }) => {
   }
 };
 export default function SignupPage() {
+  const toast= useToast()
   const [showPassword, setShowPassword] = useState(false);
   const [state, dispatch] = useReducer(reducer, initialState);
   const dispatch2 = useDispatch();
@@ -81,7 +82,13 @@ export default function SignupPage() {
     e.preventDefault();
     console.log(state);
     dispatch2(handleRegister(state))
-      .then((res) => dispatch2({ type: PASSENGER_SUCCESS,payload:res.data.passenger}))
+      .then((res) =>{ toast({
+        title: 'User Registered!!',
+        status: 'success',
+        position: 'bottom-right',
+        duration: 3000,
+        isClosable: true,
+      });dispatch2({ type: PASSENGER_SUCCESS,payload:res.data.passenger})})
       .catch((err) => dispatch2({ type: PASSENGER_FAILURE }));
     dispatch({ type: actions.RESET });
   }
