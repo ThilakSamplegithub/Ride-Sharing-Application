@@ -12,7 +12,10 @@ import {
   InputRightElement
   ,
   Container,
- 
+ Menu,
+ MenuButton,
+ MenuList,
+ MenuItem
   
 } from '@chakra-ui/react';
 import DatePicker from 'react-datepicker';
@@ -27,7 +30,27 @@ function Passenger() {
   const [destination, setDestination] = useState('');
   const [showRides, setShowRides] = useState(false);
   const [date, setDate] = useState(new Date());
-   
+  const [updateStatus, setUpdateStatus] = useState(null);
+  const handleUpdate = async () => {
+    try {
+      const response = await fetch('https://sparkriders-backend.onrender.com/passenger', {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ pickup, destination, date }), 
+      });
+
+      if (response.ok) {
+        setUpdateStatus('Successfully updated data.');
+      } else {
+        setUpdateStatus('Failed to update data.');
+      }
+    } catch (error) {
+      setUpdateStatus('An error occurred while updating data.');
+      console.error(error);
+    }
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     setShowRides(true)
@@ -107,7 +130,19 @@ function Passenger() {
             </InputLeftElement>
 
             
-            <Button style={{marginLeft:"40px", border:"none", backgroundColor:"white"}}>Add payment method</Button>
+            {/* <Button  style={{marginLeft:"40px", border:"none", backgroundColor:"white"}}>Add payment method</Button> */}
+
+            <Menu>
+    <MenuButton as={Button} style={{ marginLeft: "40px", border: "none", backgroundColor: "white" }}>
+      Add payment method
+    </MenuButton>
+    <MenuList style={{marginLeft:"275px", marginTop:"-50px"}}>
+      <MenuItem>Cash</MenuItem>
+      <MenuItem>UPI</MenuItem>
+      <MenuItem>Netbanking</MenuItem>
+    
+    </MenuList>
+  </Menu>
             <InputRightElement>
             
                 <ChevronRightIcon/>
@@ -116,7 +151,7 @@ function Passenger() {
             
             </InputRightElement>
             </InputGroup>
-          <Button type="submit" mt={"10px"} style={{width:"100%", border:"none", borderRadius:"5px", height:"40px", backgroundColor:"black", color:"white", fontFamily:"sans-serif", fontWeight:"bold", fontSize:"15px", cursor:"pointer"}}>
+          <Button type="submit" mt={"10px"} style={{width:"100%", border:"none", borderRadius:"5px", height:"40px", backgroundColor:"black", color:"white", fontFamily:"sans-serif", fontWeight:"bold", fontSize:"15px", cursor:"pointer"}} onClick={handleUpdate}>
             Request Ride
           </Button>
           </Box>

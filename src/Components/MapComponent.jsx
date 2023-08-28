@@ -9,7 +9,7 @@ const MapComponent = ({ locations }) => {
     <Box >
       <MapContainer
       //lat={20.5937} lng={78.9629}
-        center={[51.505, -0.09]}
+        center={[20.5937, 78.9629]}
         zoom={13}
         style={{height:"700px", position:"absolute", top:"60px", left:"0", width:"100%", zIndex:"-1"}}
       >
