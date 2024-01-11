@@ -89,7 +89,7 @@ const RideRequestForm = () => {
         </h1>
       </div>
       <InputGroup mt={4}>
-        <Input
+        {/* <Input
           placeholder="Enter pick up location"
           value={pickUpLocation}
           onChange={(e) => setPickUpLocation(e.target.value)}
@@ -98,7 +98,7 @@ const RideRequestForm = () => {
           marginLeft={10}
           marginRight={10}
           marginBottom={3}
-        />
+        /> */}
         <InputRightElement width="auto">
           <IconButton
             aria-label="Get Location"
@@ -118,7 +118,7 @@ const RideRequestForm = () => {
           marginRight={10}
         />
       </InputGroup>
-      <Link to="/pass"><Button
+      <Link to="/passenger"><Button
         mt={4}
         colorScheme="teal"
         size="lg"

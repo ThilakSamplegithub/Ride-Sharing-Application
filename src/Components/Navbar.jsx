@@ -12,13 +12,13 @@ import {
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import NineDotsIcon from "../Icons/NineDots";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 const Navbar = () => {
   return (
     <Flex bg="gray.800" color="white" p={4} alignItems="center">
       <Box fontSize="xl" marginLeft="50px" marginRight="50px">
-        SparkRiders
+      <Link to='/'>SparkRiders</Link>
       </Box>
 
       <Menu border="none">

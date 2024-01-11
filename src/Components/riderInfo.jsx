@@ -1,8 +1,6 @@
-import React,{useState, useEffect}  from 'react';
+import React, { useState, useEffect } from "react";
 import {
- 
   Box,
-
   Container,
   Button,
   Table,
@@ -11,112 +9,158 @@ import {
   Tr,
   Th,
   Td,
-  
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";
 
-import 'react-datepicker/dist/react-datepicker.css';
-import '../App.css';
-
-import MapComponent from './MapComponent';
+import "react-datepicker/dist/react-datepicker.css";
+import "../App.css";
+import { useDispatch, useSelector } from "react-redux";
+import MapComponent from "./MapComponent";
+import { getNearByDrivers } from "../Redux/Passenger/actions";
+import {
+  PASSENGER_FAILURE,
+  PASSENGER_NEARBY_DRIVERS,
+} from "../Redux/Passenger/actionTypes";
+import { useNavigate } from "react-router-dom";
 
 function RiderInfo() {
-    
- 
-    const [passengers, setPassengers] = useState([]);
-    // const [selectedPassenger, setSelectedPassenger] = useState(null);
-    // const [isModalOpen, setIsModalOpen] = useState(false);
-    // // useEffect(() => {
-     
-    //   const fetchData = async () => {
-    //     try {
-    //       const response = await fetch('https://sparkriders-backend.onrender.com/rider');
-    //       if (response.ok) {
-    //         const data = await response.json();
-    //         setPassengers(data);
-    //       } else {
-    //         console.error('Failed to fetch data');
-    //       }
-    //     } catch (error) {
-    //       console.error('An error occurred while fetching data:', error);
-    //     }
-    //   };
-  
-    //   fetchData();
-    // }, []);
-    useEffect(() => {
-      
-      const dummyApiResponse = [
-        {
-            id: 1,
-            name: 'Masai Singh',
-            contact: '9090909090',
-            Carnumber:"Tl 1 420",
-            pickupLocation: 'railway station, Hyderabad',
-            destination: 'bus stand, hyderabad',
-            price:"₹340.33"
-          },
-         
-       
-      ];
-      setPassengers(dummyApiResponse);
-    }, []);
-   
-    
-     
- 
-
+     const{isStatus,driver}=useSelector(state=>state.passenger_reducer)
+  const dispatch = useDispatch();
+  const navigate=useNavigate()
+  useEffect(() => {
+    dispatch(getNearByDrivers())
+      .then((res) => {
+        dispatch({ type: PASSENGER_NEARBY_DRIVERS ,payload:res.nearBydrivers,payload2:res.passenger});
+      })
+      .catch((err) => dispatch({ type: PASSENGER_FAILURE }));
+  }, [isStatus]);
+console.log(driver,'right now what is array')
   return (
-    
     <div>
-      
-<Container style={{left:"90px", top:"200px", position:"absolute", zIndex:"1", borderRadius:'10px', width:"1200px"}}>
-      <Box style={{border:"2px solid black",borderRadius:"10px", width:"1200px", height:"100%"}}>
-        
-
-      <Table  style={{width:"100%"}}>
+      <Container
+        style={{
+          left: "90px",
+          top: "200px",
+          position: "absolute",
+          zIndex: "1",
+          borderRadius: "10px",
+          width: "1200px",
+        }}
+      >
+        <Box
+          style={{
+            border: "2px solid black",
+            borderRadius: "10px",
+            width: "1200px",
+            height: "100%",
+          }}
+        >
+          {isStatus?<Table style={{ width: "100%" }}>
             <Thead>
               <Tr>
-                
                 <Th>Name</Th>
                 <Th>Contact No</Th>
-                <Th>Car Number</Th>
+                <Th>Car Model</Th>
                 <Th>Pickup Location</Th>
-                <Th>Destination</Th>
+                <Th>Email</Th>
                 <Th>Price</Th>
                 <Th>Actions</Th>
               </Tr>
             </Thead>
-            <Tbody >
-              {passengers.map((passenger, index) => (
-                <Tr key={passenger.id}>
-                  
-                  <Td>{passenger.name}</Td>
-                  <Td>{passenger.contact}</Td>
-                  <Td>{passenger.Carnumber}</Td>
-                  <Td>{passenger.pickupLocation}</Td>
-                  <Td>{passenger.destination}</Td>
-                  <Td>{passenger.price}</Td>
+            <Tbody>
+              {driver?.map((driver, index) => (
+                <Tr key={driver.id}>
+                  <Td>{driver.name}</Td>
+                  <Td>{driver.phoneNumber}</Td>
+                  <Td>{driver.carModel}</Td>
+                  <Td>{driver.location}</Td>
+                  <Td>{driver.email}</Td>
+                  <Td>Rs.300</Td>
                   <Td>
-                    <Button style={{border:"none", borderRadius:"3px", backgroundColor:"greenyellow", height:"20px"}} size="sm" >
+                    <Button
+                      style={{
+                        border: "none",
+                        borderRadius: "3px",
+                        backgroundColor: "greenyellow",
+                        height: "20px",
+                      }}
+                      size="sm"
+                      onClick={()=>navigate('/driverLogin')}
+                    >
                       Track
                     </Button>
-                    <Button style={{border:"none", borderRadius:"3px", backgroundColor:"green", height:"20px"}} size="sm" ml={4}>
+                    <Button
+                      style={{
+                        border: "none",
+                        borderRadius: "3px",
+                        backgroundColor: "green",
+                        height: "20px",
+                      }}
+                      size="sm"
+                      ml={4}
+                      onClick={()=>navigate('/driverLogin')}
+                    >
                       Call
                     </Button>
                   </Td>
                 </Tr>
               ))}
             </Tbody>
-          </Table>
-         
-          
-       
-         
-      </Box>
-    </Container>
-    <MapComponent/>
+          </Table>:<Table style={{ width: "100%" }}>
+            <Thead>
+              <Tr>
+                <Th>Name</Th>
+                <Th>Contact No</Th>
+                <Th>Car Model</Th>
+                <Th>Pickup Location</Th>
+                <Th>Email</Th>
+                <Th>Price</Th>
+                <Th>Actions</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {driver?.map((driver, index) => (
+                <Tr key={driver.id}>
+                  <Td>{driver.name}</Td>
+                  <Td>{driver.phoneNumber}</Td>
+                  <Td>{driver.carModel}</Td>
+                  <Td>{driver.location}</Td>
+                  <Td>{driver.email}</Td>
+                  <Td>Rs.300</Td>
+                  <Td>
+                    <Button
+                      style={{
+                        border: "none",
+                        borderRadius: "3px",
+                        backgroundColor: "greenyellow",
+                        height: "20px",
+                      }}
+                      size="sm"
+                      onClick={()=>navigate('/driverLogin')}
+                    >
+                      Track
+                    </Button>
+                    <Button
+                      style={{
+                        border: "none",
+                        borderRadius: "3px",
+                        backgroundColor: "green",
+                        height: "20px",
+                      }}
+                      size="sm"
+                      ml={4}
+                      onClick={()=>navigate('/driverLogin')}
+                    >
+                      Call
+                    </Button>
+                  </Td>
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>}
+        </Box>
+      </Container>
+      <MapComponent />
     </div>
-    
   );
 }
 

@@ -19,12 +19,13 @@ import {
 } from "@chakra-ui/react";
 import { handleRegister } from "../Redux/Passenger/actions";
 import { useState, useReducer } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import {
   PASSENGER_FAILURE,
   PASSENGER_SUCCESS,
 } from "../Redux/Passenger/actionTypes";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 const actions = {
   NAME: "NAME",
   EMAIL: "EMAIL",
@@ -71,16 +72,20 @@ const reducer = (state = initialState, { type, payload }) => {
   }
 };
 export default function SignupPage() {
+  const navigate=useNavigate()
   const toast= useToast()
   const [showPassword, setShowPassword] = useState(false);
+  const {isLoading,isError}=useSelector(state=>state.passenger_reducer)
+  console.log(isLoading,'is loadingstate')
   const [state, dispatch] = useReducer(reducer, initialState);
   const dispatch2 = useDispatch();
   const { name, email, password, gender, phoneNumber, location } = state;
-  console.log(state, "is state");
+  console.log(state, "is state outside function");
   function handlPost(e) {
+    console.log('function invoked')
     console.log(e);
     e.preventDefault();
-    console.log(state);
+    console.log(state,'inside function');
     dispatch2(handleRegister(state))
       .then((res) =>{ toast({
         title: 'User Registered!!',
@@ -88,11 +93,10 @@ export default function SignupPage() {
         position: 'bottom-right',
         duration: 3000,
         isClosable: true,
-      });dispatch2({ type: PASSENGER_SUCCESS,payload:res.data.passenger})})
+      });dispatch2({ type: PASSENGER_SUCCESS,payload:res.data.passenger});dispatch({ type: actions.RESET });navigate("/login")})
       .catch((err) => dispatch2({ type: PASSENGER_FAILURE }));
-    dispatch({ type: actions.RESET });
   }
-  return (
+  return  (
     <Flex
       minH={"100vh"}
       align={"center"}
@@ -229,8 +233,8 @@ export default function SignupPage() {
               </Button>
             </Stack>
             <Stack pt={6}>
-              <Text align={"center"}>
-                Already a user? <Link color={"blue.400"}>Login</Link>
+              <Text align={"center"} >
+                Already a user? <RouterLink to={"/login"}  ><Box color={"blue.500"}>Login</Box></RouterLink>
               </Text>
             </Stack>
           </Stack>

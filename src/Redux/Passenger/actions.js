@@ -13,3 +13,37 @@ export const handleLogin=({email,password})=>async(dispatch)=>{
     let res=await axios.post(`${baseurl}passenger/login`,{email,password})
     return res
 }
+export const handleRequest=(location)=>async(dispatch)=>{
+ dispatch({type:PASSENGER_REQUEST})
+ console.log(location,'inside actions function')
+//  let res=await axios.patch(`${baseurl}passenger/update/request/${localStorage.getItem("passengerId")}`,location)
+  let res=await fetch(`${baseurl}passenger/update/request/${localStorage.getItem("passengerId")}`,{
+    method:"PATCH",
+    headers:{
+      "content-Type":"application/json",
+      "Authorization":localStorage.getItem('token')
+    },
+    body:JSON.stringify(location)
+  })
+ return res
+}
+export const getNearByDrivers=()=>async(dispatch)=>{
+dispatch({type:PASSENGER_REQUEST})
+ let res=await fetch(`${baseurl}passenger/${localStorage.getItem("passengerId")}`,{
+  method:"GET",
+  headers:{
+    "Authorization":localStorage.getItem("token")
+  }
+ })
+//  if(!res.ok){
+//   throw new Error('something went wrong')
+//  }
+ let data=await res.json()
+ console.log(data)
+ return data
+}
+export const handleDriverLogin=(data)=>async(dispatch)=>{
+dispatch({type:PASSENGER_REQUEST})
+let res=await axios.post(`${baseurl}driver/login`,data)
+return res
+}

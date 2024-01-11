@@ -1,5 +1,4 @@
 "use client";
-
 import {
   Flex,
   Box,
@@ -17,15 +16,14 @@ import {
 import { Icon } from "@chakra-ui/icons";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { handleLogin } from "../Redux/Passenger/actions";
+import { handleDriverLogin } from "../Redux/Passenger/actions";
 import {
   PASSENGER_FAILURE,
   PASSENGER_LOGINSUCCESS,
 } from "../Redux/Passenger/actionTypes";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
-export default function LoginPage() {
-  const toast = useToast()
+const DriverLoginPage = () => {
+    const toast = useToast()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -33,7 +31,7 @@ export default function LoginPage() {
   const location = useLocation();
   console.log(location, "is");
   const handleClick = (e) => {
-    dispatch(handleLogin({ email, password }))
+    dispatch(handleDriverLogin({ email, password }))
       .then((res) => {
         toast({
           title: 'Login success',
@@ -42,11 +40,11 @@ export default function LoginPage() {
           duration: 9000,
           isClosable: true,
         });
-        console.log(res.data.token,'is after login')
-        localStorage.setItem("token", res.data.token);
-        localStorage.setItem("passengerId",res.data.id)
+        console.log(res.data,'is after login')
+        localStorage.setItem("driver_token", res.data.token);
+        localStorage.setItem("driverId",res.data.id)
         dispatch({ type: PASSENGER_LOGINSUCCESS, payload: true });
-        navigate(location.state,{replace:true});
+        navigate('/driver',{replace:true});
       })
       .catch((err) =>{ toast({
         title: 'Login failed',
@@ -106,3 +104,5 @@ export default function LoginPage() {
     </Stack>
   );
 }
+
+export default DriverLoginPage
