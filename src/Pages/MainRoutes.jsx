@@ -10,6 +10,7 @@ import RiderInfo from '../Components/riderInfo';
 import { PrivateRoute } from './PrivateRoute';
 import DriverLoginPage from './DriverLoginPage';
 import DriverPage from './DriverPage';
+import Driver_PrivateRoute from './Driver_PrivateRoute';
 function MainRoutes() {
   return (
     <Routes>
@@ -21,7 +22,7 @@ function MainRoutes() {
         <Route path='/signup' element={<SignupPage/>}></Route>
         <Route path='/login' element={<LoginPage/>}></Route>
         <Route path="/driverLogin" element={<DriverLoginPage/>}></Route>
-        <Route path='/driver' element={<DriverPage/>}></Route>
+        <Route path='/driver' element={<Driver_PrivateRoute><DriverPage/></Driver_PrivateRoute>}></Route>
         <Route path='/riderInfo' element={<RiderInfo/>}></Route>
         <Route></Route>
     </Routes>

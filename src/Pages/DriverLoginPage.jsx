@@ -1,9 +1,5 @@
 "use client";
 import {
-  Flex,
-  Box,
-  FormControl,
-  FormLabel,
   Input,
   Checkbox,
   Stack,
@@ -41,7 +37,7 @@ const DriverLoginPage = () => {
         localStorage.setItem("driver_token", res.data.token);
         localStorage.setItem("driverId",res.data.id)
         dispatch({ type: DRIVER_LOGIN_SUCCESS, payload: true });
-        navigate('/driver',{replace:true});
+        navigate(location.state==='/driver'?location.state:'/driver',{replace:true});
       })
       .catch((err) =>{ toast({
         title: 'Login failed',
@@ -82,6 +78,7 @@ const DriverLoginPage = () => {
       </Text>
       <Input
         placeholder="enter password"
+        type="password"
         border="1px solid  #E0E0E0"
         color={"#000000"}
         value={"123"}
