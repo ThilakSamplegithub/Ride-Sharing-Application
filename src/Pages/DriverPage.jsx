@@ -12,6 +12,7 @@ import {
     TableContainer,
   } from '@chakra-ui/react'
 import ConfirmTable from "../Components/ConfirmTable";
+import MapComponent from "../Components/MapComponent";
 const DriverPage = () => {
   const baseURL = process.env.REACT_APP_BASE_URL;
   const [passengers,setPassengers]=useState([])
@@ -32,6 +33,7 @@ const DriverPage = () => {
       .catch((err) => console.log(err.message, "is error"));
   }, []);
   return <div>
+    <MapComponent/>
     <TableContainer>
   <Table variant='simple'>
     <TableCaption>Requests for Ride</TableCaption>
