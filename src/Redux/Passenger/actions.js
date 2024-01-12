@@ -25,7 +25,8 @@ export const handleRequest=(location)=>async(dispatch)=>{
     },
     body:JSON.stringify(location)
   })
- return res
+  let data=await res.json()
+ return data
 }
 export const getNearByDrivers=()=>async(dispatch)=>{
 dispatch({type:PASSENGER_REQUEST})
@@ -46,4 +47,19 @@ export const handleDriverLogin=(data)=>async(dispatch)=>{
 dispatch({type:PASSENGER_REQUEST})
 let res=await axios.post(`${baseurl}driver/login`,data)
 return res
+}
+export const defaultRequest=()=>async(dispatch)=>{
+  console.log('entered default Request')
+dispatch({type:PASSENGER_REQUEST})
+let res=await fetch(`${baseurl}default/${localStorage.getItem("passengerId")}`,{
+  method:"PATCH",
+  headers:{
+    'content-Type':"application/json",
+    'Authorization':localStorage.getItem("token")
+  },
+  body:JSON.stringify({status:false,request:false,driverId:null})
+})
+let data=await res.json()
+console.log(data,'after defaulting')
+return data
 }

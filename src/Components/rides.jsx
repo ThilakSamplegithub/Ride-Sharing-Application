@@ -132,7 +132,6 @@ function Rides({ pickup }) {
                 })
                 .then(()=>setTimeout(()=>navigate("/riderInfo"),1000))
                 .catch((err) => dispatch({ type: PASSENGER_FAILURE }));
-              navigate("/riderInfo");
              // Delay for 1000 milliseconds (1 second)
           }}
         >

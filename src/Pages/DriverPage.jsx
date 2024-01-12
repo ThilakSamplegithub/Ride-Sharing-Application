@@ -46,39 +46,7 @@ const DriverPage = () => {
     <Tbody>
       {passengers?.filter(el=>el.request===true)?.map((el,i)=>(
         <ConfirmTable key={i} i={i} {...el} />
-    //      <Tr key={i}>
-    //     <Td>{i+1}</Td>
-    //     <Td>{name}</Td>
-    //     <Td>{phoneNumber}</Td>
-    //     <Td onClick={()=>toggleColor(i)}>{isChecked?<svg
-    //   width="24"
-    //   height="24"
-    //   viewBox="0 0 24 24"
-    //   fill='green'
-    //   stroke="currentColor"
-    //   strokeWidth="2"
-    //   strokeLinecap="round"
-    //   strokeLinejoin="round"
-    // >
-    //   <polyline points="20 6 9 17 4 12" />
-    // </svg>:'confirm'}</Td>
-    //   </Tr>
       ))}  
-      {/* <Tr>
-        <Td>inches</Td>
-        <Td>millimetres (mm)</Td>
-        <Td isNumeric>25.4</Td>
-      </Tr>
-      <Tr>
-        <Td>feet</Td>
-        <Td>centimetres (cm)</Td>
-        <Td isNumeric>30.48</Td>
-      </Tr>
-      <Tr>
-        <Td>yards</Td>
-        <Td>metres (m)</Td>
-        <Td isNumeric>0.91444</Td>
-      </Tr> */}
     </Tbody>
   </Table>
 </TableContainer>
