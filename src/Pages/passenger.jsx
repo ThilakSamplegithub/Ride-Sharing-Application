@@ -33,24 +33,6 @@ function Passenger() {
   const [showRides, setShowRides] = useState(false);
   const [date, setDate] = useState(new Date());
   const [updateStatus, setUpdateStatus] = useState(null);
-  // const handleUpdate = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       "https://sparkriders-backend.onrender.com/passenger",
-  //       {
-  //         method: "PATCH",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({ pickup, destination, date }),
-  //       }
-  //     );
-  //   console.log(response,'is response')
-  //   } catch (error) {
-  //     setUpdateStatus(error.message);
-  //     console.error(error.message);
-  //   }
-  // };
   const handleSubmit = (event) => {
     event.preventDefault();
     setShowRides(true);

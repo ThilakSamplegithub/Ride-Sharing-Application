@@ -26,6 +26,7 @@ import {
   PASSENGER_SUCCESS,
 } from "../Redux/Passenger/actionTypes";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
+import Signup_loader from "../Components/Signup_loader";
 const actions = {
   NAME: "NAME",
   EMAIL: "EMAIL",
@@ -231,6 +232,7 @@ export default function SignupPage() {
               >
                 Sign up
               </Button>
+              { isLoading && <Signup_loader/>}
             </Stack>
             <Stack pt={6}>
               <Text align={"center"} >

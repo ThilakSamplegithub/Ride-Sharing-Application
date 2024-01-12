@@ -16,12 +16,9 @@ import {
 import { Icon } from "@chakra-ui/icons";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { handleDriverLogin } from "../Redux/Passenger/actions";
-import {
-  PASSENGER_FAILURE,
-  PASSENGER_LOGINSUCCESS,
-} from "../Redux/Passenger/actionTypes";
+import { handleDriverLogin } from "../Redux/Rider/actions";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { DRIVER_FAILURE, DRIVER_LOGIN_SUCCESS } from "../Redux/Rider/actionTypes";
 const DriverLoginPage = () => {
     const toast = useToast()
   const [email, setEmail] = useState("");
@@ -43,7 +40,7 @@ const DriverLoginPage = () => {
         console.log(res.data,'is after login')
         localStorage.setItem("driver_token", res.data.token);
         localStorage.setItem("driverId",res.data.id)
-        dispatch({ type: PASSENGER_LOGINSUCCESS, payload: true });
+        dispatch({ type: DRIVER_LOGIN_SUCCESS, payload: true });
         navigate('/driver',{replace:true});
       })
       .catch((err) =>{ toast({
@@ -52,10 +49,12 @@ const DriverLoginPage = () => {
         status: 'success',
         duration: 9000,
         isClosable: true,
-      });dispatch({ type: PASSENGER_FAILURE })});
+      });dispatch({ type: DRIVER_FAILURE })});
   };
   return (
     <Stack w={{ sm: 250, md: 300 }} border={'0px solid red'} margin={"auto"} transform={"translate(0%,50%)"} gap={5}>
+      <Heading>Driver Login</Heading>
+      <u></u>
       <Text >
         Email Address
         <Icon height={3} width={3} viewBox="0 0 24 24" color="red.500">
@@ -85,7 +84,7 @@ const DriverLoginPage = () => {
         placeholder="enter password"
         border="1px solid  #E0E0E0"
         color={"#000000"}
-        value={password}
+        value={"123"}
         onChange={(e) => setPassword(e.target.value)}
       />
       <Button

@@ -1,4 +1,4 @@
-import { PASSENGER_DROPPED, PASSENGER_FAILURE, PASSENGER_LOGINSUCCESS, PASSENGER_NEARBY_DRIVERS, PASSENGER_REQUEST, PASSENGER_RIDE_REQUEST, PASSENGER_SUCCESS } from "./actionTypes"
+import { PASSENGER_DROPPED, PASSENGER_FAILURE, PASSENGER_LOGINSUCCESS, PASSENGER_LOGOUT, PASSENGER_NEARBY_DRIVERS, PASSENGER_REQUEST, PASSENGER_RIDE_REQUEST, PASSENGER_SUCCESS } from "./actionTypes"
 
 const initialState={
 isLoading:false,
@@ -40,6 +40,9 @@ switch(type){
     case PASSENGER_DROPPED:{
         console.log(`dropped`)
         return {...state,isLoading:false,isStatus:false}
+    }
+    case PASSENGER_LOGOUT:{
+        return {...state,isLoading:false,isAuth:false}
     }
     default:{
         return state

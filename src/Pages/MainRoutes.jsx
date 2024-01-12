@@ -23,6 +23,7 @@ function MainRoutes() {
         <Route path="/driverLogin" element={<DriverLoginPage/>}></Route>
         <Route path='/driver' element={<DriverPage/>}></Route>
         <Route path='/riderInfo' element={<RiderInfo/>}></Route>
+        <Route></Route>
     </Routes>
   );
 }

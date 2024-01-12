@@ -43,15 +43,15 @@ dispatch({type:PASSENGER_REQUEST})
  console.log(data)
  return data
 }
-export const handleDriverLogin=(data)=>async(dispatch)=>{
-dispatch({type:PASSENGER_REQUEST})
-let res=await axios.post(`${baseurl}driver/login`,data)
-return res
-}
+// export const handleDriverLogin=(data)=>async(dispatch)=>{
+// dispatch({type:PASSENGER_REQUEST})
+// let res=await axios.post(`${baseurl}driver/login`,data)
+// return res
+// }
 export const defaultRequest=()=>async(dispatch)=>{
   console.log('entered default Request')
 dispatch({type:PASSENGER_REQUEST})
-let res=await fetch(`${baseurl}default/${localStorage.getItem("passengerId")}`,{
+let res=await fetch(`${baseurl}passenger/default/${localStorage.getItem("passengerId")}`,{
   method:"PATCH",
   headers:{
     'content-Type':"application/json",
@@ -61,5 +61,16 @@ let res=await fetch(`${baseurl}default/${localStorage.getItem("passengerId")}`,{
 })
 let data=await res.json()
 console.log(data,'after defaulting')
+return data
+}
+export const passengerLogout=()=>async(dispatch)=>{
+dispatch({type:PASSENGER_REQUEST})
+let res=await fetch(`${baseurl}passenger/logout`,{
+  method:"GET",
+  headers:{
+    "Authorization":localStorage.getItem("token")
+  }
+})
+let data=await res.json()
 return data
 }

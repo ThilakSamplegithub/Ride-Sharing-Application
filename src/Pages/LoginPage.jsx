@@ -16,16 +16,19 @@ import {
 } from "@chakra-ui/react";
 import { Icon } from "@chakra-ui/icons";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { handleLogin } from "../Redux/Passenger/actions";
 import {
   PASSENGER_FAILURE,
   PASSENGER_LOGINSUCCESS,
 } from "../Redux/Passenger/actionTypes";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Loader from "../Components/Loader";
 
 export default function LoginPage() {
   const toast = useToast()
+  const {isLoading}=useSelector(state=>state.passenger_reducer)
+  console.log(isLoading,'is loading status')
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -46,7 +49,7 @@ export default function LoginPage() {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("passengerId",res.data.id)
         dispatch({ type: PASSENGER_LOGINSUCCESS, payload: true });
-        navigate(location.state,{replace:true});
+        navigate(location.state==="/passenger"?location.state:'/passenger',{replace:true});
       })
       .catch((err) =>{ toast({
         title: 'Login failed',
@@ -58,6 +61,7 @@ export default function LoginPage() {
   };
   return (
     <Stack w={{ sm: 250, md: 300 }} border={'0px solid red'} margin={"auto"} transform={"translate(0%,50%)"} gap={5}>
+      <Heading>Passenger Login</Heading>
       <Text >
         Email Address
         <Icon height={3} width={3} viewBox="0 0 24 24" color="red.500">
@@ -85,6 +89,7 @@ export default function LoginPage() {
       </Text>
       <Input
         placeholder="enter password"
+        type="password"
         border="1px solid  #E0E0E0"
         color={"#000000"}
         value={password}
@@ -97,6 +102,7 @@ export default function LoginPage() {
       >
         Login
       </Button>
+      {isLoading && <Loader/>}
       <Text>
         Don't have account?{" "}
         <Link to="/signup" style={{ color: "rgb(49,130,206)" }}>
