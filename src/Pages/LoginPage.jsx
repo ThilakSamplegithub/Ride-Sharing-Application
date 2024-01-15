@@ -31,41 +31,10 @@ export default function LoginPage() {
   console.log(isLoading,'is loading status')
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [validate,setValidate]=useState('password must have length of 6 characters containing minimum 1 lowercase,1 uppercase,1 number and 1 special character')
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  // let lower='abcdefghijklmnopqrstuvwxyz'
-  // const lowerCase=lower.trim().split("")
-  // console.log(lowerCase,'is lowercase')
-  // let upper='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-  // const upperCase=upper.trim().split("")
-  // console.log(upperCase,'is upperCase')
-  // let digits='0123456789'
-  // let numbers=digits.trim().split("").map(Number)
-  // let special='!@#$%^&*()_'
-  // let specialChar=special.trim().split("")
-  // function validatePassword(password){
-  //   if(password.length<6){
-  //     setValidate("Must contain atleast 6 characters")
-  //   }else if(!lowerCase.includes(password)){
-  //     setValidate(`Must contain minimum 1 lowercase character`)
-  //   }else if(!upperCase.includes(password)){
-  //     setValidate(`Must contain minimum 1 uppercase character`)
-  //   }else if(!numbers.includes(password)){
-  //     setValidate(`Must contain minimum 1 digit between 0 to 9`)
-  //   }else if(!specialChar.includes(password)){
-  //     setValidate(`Must contain minimum 1 digit between 0 to 9`)
-  //   }else{
-  //     setValidate(`password sattisfies criteria`)
-  //   }
-  // }
-  // useEffect(()=>{
-  //   // const pass=password.trim().split("")
-  //   for(let i=0;i<password.length;i++){
-  //     validatePassword(password[i])
-  //   }
-  // },[password])
+  
   console.log(location, "is");
   const handleClick = (e) => {
     dispatch(handleLogin({ email, password }))
@@ -127,7 +96,7 @@ export default function LoginPage() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      {/* <Text>{validate}</Text> */}
+      
       <Button
         border={"1px solid #0073e6"}
         borderRadius={"10px"}
