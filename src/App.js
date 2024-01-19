@@ -7,7 +7,7 @@ import MainRoutes from './Pages/MainRoutes';
 function App() {
 
   return (
-    <div className="App" style={{border:'1px solid red'}}>
+    <div className="App" style={{position:"absolute"}}>
       <Navbar/>
     <MainRoutes/>
     
