@@ -20,7 +20,9 @@
   display: flex;
 
 } */
-
+.App{
+  border:0px solid magenta;
+}
 /* Additional styles for Chakra UI components */
 .date-picker-wrapper {
   margin-top: 10px;

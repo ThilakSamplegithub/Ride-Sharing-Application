@@ -4,11 +4,13 @@ import Passenger from './Pages/passenger';
 import Rider from './Pages/rider';
 import Navbar from './Components/NavBar';
 import MainRoutes from './Pages/MainRoutes';
+import WithSubnavigation from './Components/Navbar2';
 function App() {
 
   return (
-    <div className="App" style={{position:"absolute"}}>
-      <Navbar/>
+    <div className="App">
+      <WithSubnavigation/>
+      {/* <Navbar/> */}
     <MainRoutes/>
     
     

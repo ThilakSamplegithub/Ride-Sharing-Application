@@ -71,13 +71,19 @@ const RideRequestForm = () => {
 
   return (
     <Box
-      height="650px"
-      width="650px"
+      height="94%"
+      // height='650px'
+      // width='44%'
+      width={{base:'318px',sm:'450px',md:'650px'}}
+      // width='650px'
       border="1px solid #ccc"
       p={4}
       borderRadius="md"
       backgroundColor={"white"}
-      marginLeft="150px"
+      // ml={sm:"4%",md:'8%'}
+      // textAlign={'center'}
+      // margin={'auto'}
+      marginLeft={{base:'2%',sm:'4%',md:'8%'}}
       display="flex"
       flexDirection="column"
       justifyContent="center"

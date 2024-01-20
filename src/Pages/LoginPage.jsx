@@ -61,7 +61,7 @@ export default function LoginPage() {
       });dispatch({ type: PASSENGER_FAILURE })});
   };
   return (
-    <Stack w={{ sm: 250, md: 300 }} border={'0px solid red'} margin={"auto"} transform={"translate(0%,50%)"} gap={5}>
+    <Stack w={{ base:"250px",sm:"300px", md: 300 }}  margin={"auto"}   mt={'25%'} gap={5}>
       <Heading>Passenger Login</Heading>
       <Text >
         Email Address

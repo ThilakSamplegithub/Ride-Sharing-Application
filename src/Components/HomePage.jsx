@@ -1,12 +1,14 @@
+import { Link } from "react-router-dom";
 import "../Components/HomePage.css"
 import Footer from "./footer";
 import RideRequestForm from "./RideRequestForm";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { Text } from "@chakra-ui/react";
 
 const Homepage = () => {
   return (
     <>
-      <div className="Container">
+      <div className="Container" >
         <div
           className="inputImage"
           style={{ height: "700px", width: "100%", backgroundColor: "black" }}
@@ -34,12 +36,15 @@ const Homepage = () => {
               Guidelines, we're committed to helping to create a safe
               environment for our users.
             </p>
-            <a className="link-underline-inline description" href="">
+            <Link></Link>
+            <Text className=" description">Read about our Community Guidelines</Text>
+            <Text className=" description">See all safety features</Text>
+            {/* <a className="link-underline-inline description" href="">
               Read about our Community Guidelines
             </a>
             <a className="link-underline-inline description" href="">
               See all safety features
-            </a>
+            </a> */}
           </div>
           <div>
             <img

@@ -16,7 +16,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 const LoginMenu = () => {
   return (
-    <Menu>
+    <Menu fontSize={'sm'} marginRight={{sm:'150px',md:"0px"}} border={'1px solid red'} >
       <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
         Login
       </MenuButton>

@@ -30,7 +30,7 @@ const Logout = () => {
       dispatch(driverLogout()).then(res=>{console.log(res,'is drivers logout');dispatch({type:DRIVER_LOGOUT})})
     }
   return (
-    <Menu>
+    <Menu fontSize={'sm'}>
   <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
     Logout
   </MenuButton>
