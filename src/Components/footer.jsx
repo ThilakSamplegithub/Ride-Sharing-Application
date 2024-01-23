@@ -1,11 +1,12 @@
+import { styled } from "@chakra-ui/react";
 import React from "react";
-import "../Components/HomePage.css";
-
+// import "../Components/HomePage.css";
+import styles from "../Styles/homePage.module.css"
 function Footer() {
   return (
     <div>
-      <footer className="footer">
-        <div className="logo">
+      <footer className={styles.footer}>
+        <div className={styles.logo}>
           {/* <img
             className="logo"
             // src="https://raw.githubusercontent.com/Elson0509/uber-homepage-clone/main/imgs/logo.webp"
@@ -14,11 +15,11 @@ function Footer() {
           /> */}
         </div>
         <div>
-          <a href="#" className="footer-visit-link">
+          <a href="#" className={styles.footer_visit_link}>
             Visit Help Center
           </a>
         </div>
-        <div className="footer-themes">
+        <div className={styles.footer_themes}>
           <div>
             <ul>
               <h2>Company</h2>
@@ -80,40 +81,40 @@ function Footer() {
             </ul>
           </div>
         </div>
-        <div className="footer-social">
-          <div className="footer-social-icons">
+        <div className={styles.footer_social}>
+          <div className={styles.footer_social_icons}>
             <a href="#">
-              <i className="fab fa-facebook-square"></i>
+              <i className={`${styles.fab} ${styles.fa_facebook_square}`}></i>
             </a>
             <a href="#">
-              <i className="fab fa-twitter"></i>
+              <i className={`${styles.fab} ${styles.fa_twitter}`}></i>
             </a>
             <a href="#">
-              <i className="fab fa-youtube"></i>
+              <i className={`${styles.fab} ${styles.fa_youtube}`}></i>
             </a>
             <a href="#">
-              <i className="fab fa-linkedin"></i>
+              <i className={`${styles.fab} ${styles.fa_linkedin}`}></i>
             </a>
             <a href="#">
-              <i className="fab fa-instagram"></i>
+              <i className={`${styles.fab} ${styles.fa_instagram}`}></i>
             </a>
           </div>
           <div>
-            <div className="footer-icon-text footer-social-icons">
+            <div className={`${styles.footer_icon_text} ${styles.footer_social_icons}`}>
               <a href="#">
-                <i className="fas fa-globe"></i>
+                <i className={`${styles.fas} ${styles.fa_globe}`}></i>
                 <p>English</p>
               </a>
             </div>
-            <div className="footer-icon-text footer-social-icons">
+            <div className={`${styles.footer_icon_text} ${styles.footer_social_icons}`}>
               <a href="#">
-                <i className="fas fa-map-marker-alt"></i>
+                <i className={`${styles.fas} ${styles.fa_map_marker_alt}`}></i>
                 <p>London, Ont</p>
               </a>
             </div>
           </div>
           <div
-            className="stores"
+            className={styles.stores}
             style={{ display: "flex", justifyContent: "flex-end", gap: "10px" }}
           >
             <a href="#">
@@ -130,7 +131,7 @@ function Footer() {
             </a>
           </div>
         </div>
-        <div className="footer-privacy">
+        <div className={styles.footer_privacy}>
           <div>
             <p>© 2021 Uber Technologies Inc.</p>
           </div>

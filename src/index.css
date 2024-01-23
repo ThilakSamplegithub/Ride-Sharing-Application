@@ -6,17 +6,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* border:3px solid red; */
+  /* overflow-x: hidden; */
   
 
 }
 #root{
-  border:0px solid red;
+  /* border:0px solid red; */
   
 }
 *{
   margin:0px;
   padding:0px;
   box-sizing: border-box;
+  /* overflow-x:hidden ; I makes all elements like login signup and signin disappear*/
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

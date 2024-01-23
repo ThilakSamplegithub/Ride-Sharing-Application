@@ -20,22 +20,26 @@ function Rides({ pickup }) {
 
   return (
     <Container
+    mt={{base:'109%',sm:"59%",md:'49%',lg:"41%",xl:"2%"}}
       style={{
         border: "2px solid black",
-        marginLeft: "500px",
-        marginTop: "60px",
+        marginLeft: '50%',
+        // marginTop: "1%",
         position: "absolute",
         backgroundColor: "white",
         zIndex: "1",
         borderRadius: "10px",
-        width: "350px",
+        // width: "350px",
+        width:"30%",
+        // padding:'50%'
       }}
     >
       <Box
         style={{
           borderRadius: "10px",
           backgroundColor: "white",
-          padding: "10px",
+          padding: "30px",
+          border:'1px solid red'
         }}
       >
         <div
@@ -48,6 +52,7 @@ function Rides({ pickup }) {
               selectedRide === "sedan" ? "2px solid green" : "1px solid black",
             marginTop: "30px",
             borderRadius: "7px",
+            padding:"7%"
           }}
           onClick={() => setSelectedRide("sedan")}
         >

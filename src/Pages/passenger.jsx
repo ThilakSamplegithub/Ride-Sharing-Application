@@ -15,6 +15,7 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
+  Flex,
 } from "@chakra-ui/react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -27,39 +28,57 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import MapComponent from "../Components/MapComponent";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { handleRequest } from "../Redux/Passenger/actions";
+import { PASSENGER_FAILURE, PASSENGER_RIDE_REQUEST } from "../Redux/Passenger/actionTypes";
 function Passenger() {
   const [pickup, setPickup] = useState("");
   const [destination, setDestination] = useState("");
-  const [showRides, setShowRides] = useState(false);
+  // const [showRides, setShowRides] = useState(false);
+  const dispatch=useDispatch()
+  const navigate=useNavigate()
   const [date, setDate] = useState(new Date());
   const [updateStatus, setUpdateStatus] = useState(null);
   const handleSubmit = (event) => {
     event.preventDefault();
-    setShowRides(true);
+    // setShowRides(true);
     console.log("Ride requested:", { pickup, destination, date });
+    console.log(pickup, "inside to send as api");
+              // Redirect to the desired route
+              // window.location.href = "/riderInfo"; // Use window.location.href for redirection
+              dispatch(handleRequest({ location: pickup }))
+                .then((res) => {
+                  console.log(res, "updated location");
+                  dispatch({ type: PASSENGER_RIDE_REQUEST });
+                })
+                .then(()=>setTimeout(()=>navigate("/riderInfo"),1000))
+                .catch((err) => dispatch({ type: PASSENGER_FAILURE }));
+             // Delay for 1000 milliseconds (1 second)
   };
-
   return (
     <div>
-      {/* <Map lat={20.5937} lng={78.9629} /> */}
       <MapComponent />
-      {showRides && <Rides pickup={pickup} />}
-      <Container
+      {/* {showRides && <Rides pickup={pickup} />} */}
+    <Container
         style={{
-          marginLeft: "70px",
-          marginTop: "60px",
+          // marginLeft: "70px",
+          marginLeft:"9%",
+          // marginTop: "60px",
+          marginTop:"7%",
           position: "absolute",
           backgroundColor: "white",
           zIndex: "1",
           borderRadius: "10px",
-          width: "350px",
+          // width: "350px",
+          width:'70%',
           border: "2px solid black",
         }}
       >
-        <Box style={{ borderRadius: "10px", width: "100%", padding: "20px" }}>
+        <Box style={{ borderRadius: "10px", width: "100%", padding: "8%" }}>
           <Heading>Where can we pick you up?</Heading>
           <form onSubmit={handleSubmit}>
-            <FormControl id="pickup" mt={4}>
+            <FormControl id="pickup" mt={'3%'}>
               <InputGroup>
                 <InputLeftElement pointerEvents="none">
                   <PlusSquareIcon
@@ -68,7 +87,8 @@ function Passenger() {
                       fontSize: "7px",
                       border: "2px solid",
                       borderRadius: "1px",
-                      marginLeft: "-10px",
+                      // marginLeft: "-10px",
+                      marginLeft:"-20%",
                       marginTop: "-10px",
                     }}
                   />
@@ -77,11 +97,12 @@ function Passenger() {
                   type="pickup"
                   placeholder="Add a pickup location"
                   style={{
-                    paddingLeft: "30px",
+                    // paddingLeft: "30px",
+                    paddingLeft:"10%",
                     backgroundColor: "rgb(238,238,238)",
                     border: "none",
                     height: "30px",
-                    width: "100%",
+                    // width: "100%",
                     borderRadius: "7px",
                     fontSize: "15px",
                   }}
@@ -90,7 +111,7 @@ function Passenger() {
               </InputGroup>
             </FormControl>
 
-            <FormControl id="destination" mt={"15px"}>
+            <FormControl id="destination" mt={"7%"}>
               <InputGroup>
                 <InputLeftElement pointerEvents="none">
                   <PlusSquareIcon
@@ -99,7 +120,7 @@ function Passenger() {
                       fontSize: "7px",
                       border: "2px solid",
                       borderRadius: "1px",
-                      marginLeft: "-10px",
+                      marginLeft: "-20%",
                       marginTop: "-10px",
                     }}
                   />
@@ -108,11 +129,12 @@ function Passenger() {
                   type="pickup"
                   placeholder="Add a destination location"
                   style={{
-                    paddingLeft: "30px",
+                    // paddingLeft: "30px",
+                    paddingLeft:"9%",
                     backgroundColor: "rgb(238,238,238)",
                     border: "none",
                     height: "30px",
-                    width: "100%",
+                    // width: "100%",
                     borderRadius: "7px",
                     fontSize: "15px",
                   }}
@@ -158,32 +180,13 @@ function Passenger() {
               style={{
                 width: "100%",
                 borderTop: "1px solid gray",
-                marginTop: "28px",
+                marginTop: "14%",
               }}
             >
               <InputGroup style={{ display: "flex", marginTop: "0px" }}>
                 <InputLeftElement>
                   <CalendarIcon style={{ color: "green" }} />
                 </InputLeftElement>
-
-
-                <Menu>
-                  <MenuButton
-                    as={Button}
-                    style={{
-                      marginLeft: "40px",
-                      border: "none",
-                      backgroundColor: "white",
-                    }}
-                  >
-                    Add payment method
-                  </MenuButton>
-                  <MenuList style={{ marginLeft: "275px", marginTop: "-50px" }}>
-                    <MenuItem>Cash</MenuItem>
-                    <MenuItem>UPI</MenuItem>
-                    <MenuItem>Netbanking</MenuItem>
-                  </MenuList>
-                </Menu>
                 <InputRightElement>
                   <ChevronRightIcon />
                 </InputRightElement>

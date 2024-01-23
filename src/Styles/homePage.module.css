@@ -49,21 +49,21 @@
     color: white;
   }
   
-  .arrow-company {
+  .arrow_company {
     font-size: 10px;
   }
   
-  .icon-header-right {
+  .icon-header_right {
     font-size: 15px;
   }
   
-  .sign-up-header {
+  .sign_up_header {
     background: white;
     border-radius: 30px;
     transition: background 0.3s;
   }
   
-  .sign-up-header:hover {
+  .sign_up_header:hover {
     background: #ddd;
     transition: background 0.3s;
   }
@@ -76,17 +76,17 @@
     max-height: 32px;
   }
   
-  .left-header-div {
+  .left_header_div {
     padding-left: 110px;
     display: flex;
   }
   
-  .right-header-div {
+  .right_header_div {
     padding-right: 110px;
     display: flex;
   }
   
-  .links-show-small {
+  .links_show_small {
     display: none;
   }
   
@@ -108,18 +108,18 @@
     top: 7px;
   } */
   
-  .sign-up-small-header {
+  .sign_up_small_header {
     margin-right: 12px;
   }
   
-  .a-hamb {
+  .a_hamb {
     border-radius: 50%;
     transition: background 0.3s;
     width: 40px;
     height: 40px;
   }
   
-  .a-hamb:hover {
+  .a_hamb:hover {
     background: #333;
     transition: background 0.3s;
   }
@@ -144,23 +144,23 @@
     list-style: none;
   }
   
-  .products-navi-toggle {
+  .products_navi_toggle {
     background: #eee;
     text-align: center;
     padding: 10px;
     margin: 80px 20px 0 20px;
   }
   
-  .products-navi-toggle a {
+  .products_navi_toggle a {
     font-size: 1.4rem;
     margin: 10px;
   }
   
-  .language-navi-toggle {
+  .language_navi_toggle {
     margin: 20px 0 0 20px;
   }
   
-  .language-navi-toggle a {
+  .language_navi_toggle a {
     font-size: 1rem;
   }
   
@@ -171,7 +171,7 @@
     left: 15px;
   }
   
-  .navi-toggle-products {
+  .navi_toggle_products {
     display: none;
     position: fixed;
     background: white;
@@ -186,21 +186,21 @@
     box-shadow: 0 4px 6px -6px black;
   }
   
-  .navi-toggle-products li {
+  .navi_toggle_products li {
     border-bottom: 1px solid #eee;
   }
   
-  .navi-toggle-products li:hover {
+  .navi_toggle_products li:hover {
     background: #efefef;
   }
   
-  .navi-toggle-products a {
+  .navi_toggle_products a {
     text-decoration: none;
     color: black;
     font-size: 1.5rem;
   }
   
-  .navi-toggle-products i {
+  .navi_toggle_products i {
     font-size: 1.2rem;
     margin: 16px;
     width: 26px;
@@ -242,35 +242,35 @@
     color: #888;
   }
   
-  .subnav-products {
+  .subnav_products {
     -webkit-box-shadow: 0 4px 6px -6px black;
     -moz-box-shadow: 0 4px 6px -6px black;
     box-shadow: 0 4px 6px -6px black;
     background: white;
   }
   
-  .subnav-products li {
+  .subnav_products li {
     border-bottom: 1px solid #eee;
     background: white;
   }
   
-  .subnav-products li:hover {
+  .subnav_products li:hover {
     background: #efefef;
   }
   
-  .subnav-products a {
+  .subnav_products a {
     text-decoration: none;
     color: black;
     font-size: 1.2rem;
   }
   
-  .subnav-products i {
+  .subnav_products i {
     font-size: 1.2rem;
     margin: 10px 20px 10px 10px;
     width: 16px;
   }
   
-  .language-toggle {
+  .language_toggle {
     padding-top: 80px;
     height: 100%;
     position: fixed;
@@ -280,12 +280,12 @@
     z-index: 2;
   }
   
-  .close-language-toggle {
+  .close_language_toggle {
     text-align: right;
     font-size: 2rem;
   }
   
-  .close-language-toggle i {
+  .close_language_toggle i {
     margin-right: 10px;
     padding: 20px;
     height: 29px;
@@ -293,18 +293,18 @@
     border-radius: 50px;
   }
   
-  .close-language-toggle i:hover {
+  .close_language_toggle i:hover {
     background: #eee;
     cursor: pointer;
   }
   
-  .language-toggle h2 {
+  .language_toggle h2 {
     font-size: 3rem;
     font-family: system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding-bottom: 3rem;
   }
   
-  .language-toggle button {
+  .language_toggle button {
     border: 0;
     width: 300px;
     height: 60px;
@@ -316,50 +316,50 @@
     margin-right: 25px;
   }
   
-  .language-toggle button:hover {
+  .language_toggle button:hover {
     background: #eee !important;
     transition: background 0.5s ease-in;
   }
   
-  .language-buttons {
+  .language_buttons {
     padding-left: 30px;
   }
   
-  .active-language {
+  .active_language {
     background: #eee !important;
   }
   
-  .covid-monitor {
+  .covid_monitor {
     display: flex;
     justify-content: space-between;
     padding: 35px 10%;
     background: #eff3fe;
   }
   
-  .covid-monitor i {
+  .covid_monitor i {
     cursor: pointer;
   }
   
-  .covid-monitor h2 {
+  .covid_monitor h2 {
     font-size: 1.3rem;
     font-weight: 600;
   }
   
-  .covid-monitor h4 {
+  .covid_monitor h4 {
     font-weight: 500;
   }
   
-  .covid-monitor a {
+  .covid_monitor a {
     color: black;
     transition: all 0.3s ease-in;
   }
   
-  .covid-monitor a:hover {
+  .covid_monitor a:hover {
     color: #666;
     transition: all 0.3s ease-in;
   }
   
-  .covid-monitor h2,
+  .covid_monitor h2,
   h4 {
     margin-bottom: 15px;
   }
@@ -373,12 +373,12 @@
     transition: background-image 0.4s ease-in-out;
   } */
   
-  .signup-box {
+  .signup_box {
     width: 45%;
     background: white;
   }
   
-  .signup-choices {
+  .signup_choices {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -386,30 +386,30 @@
     margin: 0 auto;
   }
   
-  .signup-choices i {
+  .signup_choices i {
     font-size: 22px;
   }
   
-  .signup-choices div {
+  .signup_choices div {
     margin-top: 10px;
     text-align: center;
   }
   
-  .signup-options {
+  .signup_options {
     width: 15%;
     cursor: pointer;
   }
   
-  .signup-options div {
+  .signup_options div {
     margin-bottom: 15px;
   }
   
-  .sign-info {
+  .sign_info {
     border-top: 1px solid #ccc;
     padding: 50px;
   }
   
-  .sign-info h2 {
+  .sign_info h2 {
     font-size: 3.2rem;
     font-weight: 500;
     letter-spacing: 1px;
@@ -418,11 +418,11 @@
       "Lucida Sans", Arial, sans-serif;
   }
   
-  .sign-info p {
+  .sign_info p {
     margin: 20px 0 20px 0;
   }
   
-  .link-underline-inline {
+  .link_underline_inline {
     color: black;
     margin-right: 20px !important;
     text-decoration: none;
@@ -430,7 +430,7 @@
     white-space: nowrap;
   }
   
-  .link-underline-inline::before {
+  .link_underline_inline::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -440,7 +440,7 @@
     background: #ccc;
   }
   
-  .link-underline-inline::after {
+  .link_underline_inline::after {
     content: "";
     position: absolute;
     width: 0%;
@@ -452,13 +452,13 @@
     -webkit-transition: width 0.4s ease;
   }
   
-  .link-underline-inline:hover::after {
+  .link_underline_inline:hover::after {
     width: 100%;
     left: 0;
     background: black;
   }
   
-  .sign-info input {
+  .sign_info input {
     width: 100%;
     border: none;
     background: #f6f6f6;
@@ -467,25 +467,26 @@
     padding-left: 30px;
   }
   
-  .sign-info input::placeholder {
+  .sign_info input::placeholder {
     font-size: 1rem;
   }
   
-  .sign-info input::-moz-placeholder {
+/* see this -moz-placeholder */
+  .sign_info input::-moz-placeholder {
     font-size: 1rem;
   }
   
-  .sign-info input:active {
+  .sign_info input:active {
     border: none;
     outline: none;
   }
   
-  .sign-info input:focus {
+  .sign_info input:focus {
     border: none;
     outline: none;
   }
   
-  .signup-choices-wrapper hr {
+  .signup_choices_wrapper hr {
     background: black;
     height: 0.25rem;
     width: 12%;
@@ -498,18 +499,18 @@
     overflow: hidden;
   }
   
-  .ride-input {
+  .ride_input {
     position: relative;
   }
   
-  .ride-input .input-icon-left {
+  .ride_input .input_icon_left {
     position: absolute;
     top: 19px;
     left: 10px;
     font-size: 9px;
   }
   
-  .vertical-line {
+  .vertical_line {
     position: absolute;
     height: 55px;
     width: 0.5px;
@@ -519,7 +520,7 @@
     z-index: 1;
   }
   
-  .ride-input .fa-location-arrow {
+  .ride_input .fa_location_arrow {
     position: absolute;
     top: 19px;
     right: 0;
@@ -528,11 +529,11 @@
     cursor: pointer;
   }
   
-  .ride-input .fa-location-arrow:hover {
+  .ride_input .fa_location_arrow:hover {
     color: black;
   }
   
-  .btn-dark {
+  .btn_dark {
     margin: 20px 20px 20px 0;
     display: inline;
     border: none;
@@ -544,12 +545,12 @@
     transition: all 0.2s ease-in;
   }
   
-  .btn-dark:hover {
+  .btn_dark:hover {
     background: #232323;
     transition: all 0.2s ease-in;
   }
   
-  .btn-light {
+  .btn_light {
     margin: 20px 20px 20px 0;
     display: inline;
     border: none;
@@ -561,7 +562,7 @@
     transition: all 0.2s ease-in !important;
   }
   
-  .btn-light:hover {
+  .btn_light:hover {
     background: #e2e2e2 !important;
     transition: all 0.2s ease-in !important;
     transition: all 0.2s ease-in !important;
@@ -623,22 +624,22 @@
   }
   
   @media only screen and (max-width: 600px) {
-    .safety-cards {
+    .safety_cards {
       grid-template-columns: 100%;
       gap: 0px;
     }
   }
   
-  .safety-cards div {
+  .safety_cards div {
     margin-bottom: 40px;
   }
   
-  .safety-cards img {
+  .safety_cards img {
     width: 100%;
     height: auto;
   }
   
-  .safety-cards-icons {
+  .safety_cards_icons {
     margin-top: 80px;
     display: grid;
     grid-template-columns: 33% 33% 33%;
@@ -646,20 +647,20 @@
   }
   
   @media only screen and (max-width: 1135px) {
-    .safety-cards-icons {
+    .safety_cards_icons {
       grid-template-columns: 50% 50%;
     }
   }
   
   @media only screen and (max-width: 600px) {
-    .safety-cards-icons {
+    .safety_cards_icons {
       grid-template-columns: 100%;
       margin-top: 40px;
       gap: 50px;
     }
   }
   
-  .safety-cards-icons i {
+  .safety_cards_icons i {
     font-size: 1.3rem;
   }
   
@@ -668,20 +669,20 @@
     background: #f4f4f4;
   }
   
-  .download-cards {
+  .download_cards {
     display: grid;
     grid-template-columns: 50% 50%;
     gap: 30px;
   }
   
   @media only screen and (max-width: 1135px) {
-    .download-cards {
+    .download_cards {
       grid-template-columns: 100%;
       gap: 0px;
     }
   }
   
-  .download-card {
+  .download_card {
     display: grid;
     padding: 30px;
     margin-bottom: 50px;
@@ -693,39 +694,39 @@
     cursor: pointer;
   }
   
-  .download-card:hover i {
+  .download_card:hover i {
     transform: translate(10px, 0);
     transition: transform 0.3s linear;
   }
   
-  .download-card img {
+  .download_card img {
     width: 160px;
     height: auto;
   }
   
   @media only screen and (max-width: 1135px) {
-    .download-card {
+    .download_card {
       grid-template-columns: 100px auto 20px;
       padding: 15px;
     }
   
-    .download-card img {
+    .download_card img {
       width: 100px;
     }
   }
   
-  .download-card i {
+  .download_card i {
     font-size: 1.3rem;
     transition: transform 0.3s linear;
   }
   
-  .download-card p {
+  .download_card p {
     font-size: 1.6rem;
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
       "Lucida Sans", Arial, sans-serif;
   }
   
-  .arrow-signup {
+  .arrow_signup {
     margin: 5%;
     display: grid;
     grid-template-columns: 50% 50%;
@@ -733,13 +734,13 @@
   }
   
   @media only screen and (max-width: 600px) {
-    .arrow-signup {
+    .arrow_signup {
       grid-template-columns: 100%;
       gap: 0px;
     }
   }
   
-  .arrow-signup-div {
+  .arrow_signup_div {
     display: grid;
     grid-template-columns: auto 30px;
     border-bottom: 1px solid black;
@@ -749,11 +750,11 @@
     overflow: hidden;
   }
   
-  .arrow-signup-div:hover {
+  .arrow_signup_div:hover {
     color: #666;
   }
   
-  .arrow-signup-div:hover .arrow-signup-icons-div {
+  .arrow_signup_div:hover .arrow_signup_icons_div {
     animation-name: translatearrow;
     animation-duration: 0.8s;
   }
@@ -775,49 +776,49 @@
     width: auto;
   }
   
-  .footer-visit-link {
+  .footer_visit_link {
     color: white;
     text-decoration: none;
     padding-bottom: 10px;
   }
   
-  .footer-visit-link:hover {
+  .footer_visit_link:hover {
     border-bottom: 1px solid white;
   }
   
-  .footer-themes {
+  .footer_themes {
     display: grid;
     grid-template-columns: 25% 25% 25%;
     margin-top: 100px;
   }
   
   @media only screen and (max-width: 1135px) {
-    .footer-themes {
+    .footer_themes {
       grid-template-columns: 40% 60%;
     }
   }
   
   @media only screen and (max-width: 600px) {
-    .footer-themes {
+    .footer_themes {
       grid-template-columns: 100%;
     }
   }
   
-  .footer-themes h2 {
+  .footer_themes h2 {
     font-size: 1.3rem;
   }
   
-  .footer-themes li {
+  .footer_themes li {
     list-style: none;
     margin: 15px 0;
   }
   
-  .footer-themes a {
+  .footer_themes a {
     text-decoration: none;
     color: white;
   }
   
-  .footer-themes a:hover {
+  .footer_themes a:hover {
     color: #777;
   }
   
@@ -830,70 +831,70 @@
     }
   }
   
-  .arrow-signup-icons-div {
+  .arrow_signup_icons_div {
     position: absolute;
     right: -90px;
     top: 30%;
   }
   
-  .arrow-signup-div i {
+  .arrow_signup_div i {
     font-size: 1.8rem;
     padding-right: 35px;
   }
   
-  .footer-social {
+  .footer_social {
     display: grid;
     align-items: center;
     grid-template-columns: 25% 25% 50%;
   }
   
   @media only screen and (max-width: 1135px) {
-    .footer-social {
+    .footer_social {
       grid-template-columns: 100%;
     }
   }
   
-  .footer-social a {
+  .footer_social a {
     color: white;
     text-decoration: none;
   }
   
-  .footer-icon-text {
+  .footer_icon_text {
     display: inline;
   }
   
   @media only screen and (max-width: 1135px) {
-    .footer-icon-text {
+    .footer_icon_text {
       display: block;
     }
   }
   
-  .footer-icon-text p {
+  .footer_icon_text p {
     display: inline;
   }
   
-  .footer-social img {
+  .footer_social img {
     height: 40px;
     width: auto;
   }
   
   @media only screen and (max-width: 1135px) {
-    .footer-social img {
+    .footer_social img {
       height: 60px;
     }
   }
   
-  .footer-social-icons a {
+  .footer_social_icons a {
     padding: 15px;
   }
   
   @media only screen and (max-width: 1135px) {
-    .footer-social-icons a {
+    .footer_social_icons a {
       margin-right: 15px;
     }
   }
   
-  .footer-social-icons a:hover {
+  .footer_social_icons a:hover {
     background: #333;
   }
   
@@ -907,61 +908,61 @@
     }
   }
   
-  .footer-privacy {
+  .footer_privacy {
     display: flex;
     justify-content: space-between;
   }
   
   @media only screen and (max-width: 1135px) {
-    .footer-privacy {
+    .footer_privacy {
       display: block;
     }
   }
   
-  .footer-privacy p {
+  .footer_privacy p {
     color: #999;
     font-size: 0.8rem;
   }
   
-  .footer-privacy li {
+  .footer_privacy li {
     display: inline;
     margin-right: 20px;
   }
   
   @media only screen and (max-width: 1135px) {
-    .footer-privacy li {
+    .footer_privacy li {
       margin-right: 60px;
     }
   }
   
-  .footer-privacy a {
+  .footer_privacy a {
     color: #999;
     font-size: 0.8rem;
     text-decoration: none;
   }
   
-  .footer-privacy a:hover {
+  .footer_privacy a:hover {
     color: #555;
   }
   
   @media only screen and (max-width: 1135px) {
-    .links-hide-small {
+    .links_hide_small {
       display: none;
     }
   
-    .links-show-small {
+    .links_show_small {
       display: block;
     }
   
-    .left-header-div {
+    .left_header_div {
       padding-left: 20px;
     }
   
-    .right-header-div {
+    .right_header_div {
       padding-right: 30px;
     }
   
-    .language-toggle button {
+    .language_toggle button {
       display: block;
       width: 100%;
       margin-top: 10px;
@@ -971,18 +972,18 @@
       padding: 0;
     }
   
-    .signup-box {
+    .signup_box {
       position: block;
       width: 100%;
       background: white;
       margin: 0;
     }
   
-    .signup-choices-wrapper {
+    .signup_choices_wrapper {
       width: 40%;
     }
   
-    .signup-choices {
+    .signup_choices {
       margin: 0 10%;
       width: 80%;
     }
@@ -991,7 +992,7 @@
       font-size: 2.6rem;
     }
   
-    .img-signup {
+    .img_signup {
       display: block;
       width: 100%;
       height: auto;

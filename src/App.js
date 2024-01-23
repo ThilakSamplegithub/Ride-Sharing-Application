@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="App">
       <WithSubnavigation/>
-      {/* <Navbar/> */}
     <MainRoutes/>
     
     
