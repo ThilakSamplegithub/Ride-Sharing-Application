@@ -1,0 +1,20 @@
+.tableBody{
+    padding:5px
+}
+@media screen and (width<=600px) {
+    .tableBody td:nth-child(1){
+        display: none;
+    }
+    .tableBody td{
+        /* display: block; */
+        display: grid;
+        grid-template-columns: 15ch auto;
+        gap:0.5rem;
+        /* padding: 3px; */
+    }
+    .tableBody  td::before{
+        content:attr(data-cell) ":";
+        font-weight: 700;
+        text-transform: capitalize;
+    }  
+}

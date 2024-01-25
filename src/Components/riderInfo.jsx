@@ -9,8 +9,9 @@ import {
   Tr,
   Th,
   Td,
+  background,
 } from "@chakra-ui/react";
-
+import styles from "../Styles/riderInfo.module.css";
 import "react-datepicker/dist/react-datepicker.css";
 import "../App.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -37,17 +38,21 @@ function RiderInfo() {
         });
       })
       .catch((err) => dispatch({ type: PASSENGER_FAILURE }));
-      console.log(isStatus,'is status')
-       if (isStatus) {
-        console.log('entered to default',isStatus)
-    const timeoutId=setTimeout(() => {
-      dispatch(defaultRequest())
-      .then(res=>{dispatch({type:PASSENGER_DROPPED})
-      navigate("/passenger")})
-      .catch((err) => dispatch({ type: PASSENGER_FAILURE }));
-    }, 3000);
-    return ()=>{clearTimeout(timeoutId)}
-  }
+    console.log(isStatus, "is status");
+    if (isStatus) {
+      console.log("entered to default", isStatus);
+      const timeoutId = setTimeout(() => {
+        dispatch(defaultRequest())
+          .then((res) => {
+            dispatch({ type: PASSENGER_DROPPED });
+            navigate("/passenger");
+          })
+          .catch((err) => dispatch({ type: PASSENGER_FAILURE }));
+      }, 3000);
+      return () => {
+        clearTimeout(timeoutId);
+      };
+    }
   }, [isStatus]);
   // console.log(isStatus,'is status')
   // if (isStatus) {
@@ -61,103 +66,100 @@ function RiderInfo() {
   console.log(driver, "right now what is array");
   return (
     <div>
-      <Container
+      <div
         style={{
-          left: "90px",
-          top: "200px",
-          position: "absolute",
+          // left: "90px",
+          // top: "200px",
+          // position: "absolute",
+          transform: "translate(0%,10%)",
+          display: "flex",
+          justifyContent: "space-evenly",
+          // alignItems:"center",
           zIndex: "1",
           borderRadius: "10px",
-          width: "1200px",
+          // width: "1200px",
+          // border:'4px solid green'
         }}
       >
-        <Box
-          style={{
-            border: "2px solid black",
-            borderRadius: "10px",
-            width: "1200px",
-            height: "100%",
-          }}
-        >
+        <div className={styles.tableContainer}>
           {isStatus ? (
-            <Table style={{ width: "100%" }}>
-              <Thead>
-                <Tr>
-                  <Th>Name</Th>
-                  <Th>Contact No</Th>
-                  <Th>Car Model</Th>
-                  <Th>Pickup Location</Th>
-                  <Th>Email</Th>
-                  <Th>Price</Th>
-                  <Th>Actions</Th>
-                  <Th>Confirmation</Th>
-                </Tr>
-              </Thead>
-              <Tbody>
-                {driver?.map((driver, index) => (
-                  <Tr key={driver.id}>
-                    <Td>{driver.name}</Td>
-                    <Td>{driver.phoneNumber}</Td>
-                    <Td>{driver.carModel}</Td>
-                    <Td>{driver.location}</Td>
-                    <Td>{driver.email}</Td>
-                    <Td>Rs.300</Td>
-                    <Td>
-                      <Button
-                        style={{
-                          border: "none",
-                          borderRadius: "3px",
-                          backgroundColor: "greenyellow",
-                          height: "20px",
-                        }}
-                        size="sm"
-                        onClick={() => navigate("/driverLogin")}
-                      >
-                        Track
-                      </Button>
-                      <Button
-                        style={{
-                          border: "none",
-                          borderRadius: "3px",
-                          backgroundColor: "green",
-                          height: "20px",
-                        }}
-                        size="sm"
-                        ml={4}
-                        onClick={() => navigate("/driverLogin")}
-                      >
-                        Call
-                      </Button>
-                    </Td>
-                    <Td>A driver is on the way to pick you up</Td>
-                  </Tr>
-                ))}
-              </Tbody>
-            </Table>
+            <table border={1} target="_blank">
+            <caption>List of Drivers nearby location</caption>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Contact No</th>
+                <th>Car Model</th>
+                <th>Pickup Location</th>
+                <th>Email</th>
+                <th>Price</th>
+                <th>Actions</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {driver?.map(
+                (
+                  { _id, name, location, carModel, phoneNumber, email },
+                  i
+                ) => (
+                  <tr
+                    key={i}
+                  >
+                    <td data-cell='name'>{name}</td>
+                    <td data-cell='phoneNumber'>{phoneNumber}</td>
+                    <td data-cell='carModel'>{carModel}</td>
+                    <td data-cell='location'>{location}</td>
+                    <td data-cell='email'>{email}</td>
+                    <td data-cell='price'>300</td>
+                    <td data-cell='action'><Button
+                      style={{
+                        border: "none",
+                        borderRadius: "3px",
+                        backgroundColor: "greenyellow",
+                        height: "20px",
+                      }}
+                      size="sm"
+                      onClick={() => navigate("/driverLogin")}
+                    >
+                      Track
+                    </Button></td>
+                    <td>A driver is on the way to pick you up</td>
+                  </tr>
+                )
+              )}
+            </tbody>
+          </table>
           ) : (
-            <Table style={{ width: "100%" }}>
-              <Thead>
-                <Tr>
-                  <Th>Name</Th>
-                  <Th>Contact No</Th>
-                  <Th>Car Model</Th>
-                  <Th>Pickup Location</Th>
-                  <Th>Email</Th>
-                  <Th>Price</Th>
-                  <Th>Actions</Th>
-                </Tr>
-              </Thead>
-              <Tbody>
-                {driver?.map((driver, index) => (
-                  <Tr key={driver.id}>
-                    <Td>{driver.name}</Td>
-                    <Td>{driver.phoneNumber}</Td>
-                    <Td>{driver.carModel}</Td>
-                    <Td>{driver.location}</Td>
-                    <Td>{driver.email}</Td>
-                    <Td>Rs.300</Td>
-                    <Td>
-                      <Button
+            <table border={1} target="_blank">
+              <caption>List of Drivers nearby location</caption>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Contact No</th>
+                  <th>Car Model</th>
+                  <th>Pickup Location</th>
+                  <th>Email</th>
+                  <th>Price</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {driver?.map(
+                  (
+                    { _id, name, location, carModel, phoneNumber, email },
+                    i
+                  ) => (
+                    <tr
+                      key={i}
+                    >
+                      <td data-cell='name'>{name}</td>
+                      <td data-cell='phoneNumber'>{phoneNumber}</td>
+                      <td data-cell='carModel'>{carModel}</td>
+                      <td data-cell='location'>{location}</td>
+                      <td data-cell='email'>{email}</td>
+                      <td data-cell='price'>300</td>
+                      <td data-cell='action'><Button
                         style={{
                           border: "none",
                           borderRadius: "3px",
@@ -168,28 +170,16 @@ function RiderInfo() {
                         onClick={() => navigate("/driverLogin")}
                       >
                         Track
-                      </Button>
-                      <Button
-                        style={{
-                          border: "none",
-                          borderRadius: "3px",
-                          backgroundColor: "green",
-                          height: "20px",
-                        }}
-                        size="sm"
-                        ml={4}
-                        onClick={() => navigate("/driverLogin")}
-                      >
-                        Call
-                      </Button>
-                    </Td>
-                  </Tr>
-                ))}
-              </Tbody>
-            </Table>
+                      </Button></td>
+                    </tr>
+                  )
+                )}
+              </tbody>
+            </table>
+            
           )}
-        </Box>
-      </Container>
+        </div>
+      </div>
       <MapComponent />
     </div>
   );

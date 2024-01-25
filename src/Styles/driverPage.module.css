@@ -1,0 +1,18 @@
+.tableContainer caption{
+    font-weight: 700;
+}
+.tableContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:2px solid red;
+}
+.tableContainer table thead th{
+    padding:5px
+}
+@media screen and (width<=600px) {
+    .tableContainer table thead{
+        display: none;
+    }
+    
+}

@@ -1,0 +1,38 @@
+.tableContainer{
+    /* height: 400px; */
+    border: 0px solid red;
+}
+.tableContainer table{
+    width: 100%;
+}
+.tableContainer caption{
+    font-weight: 700;
+    font-size: 24px;
+    /* text-align: left; */
+}
+.tableContainer thead th{
+    padding:5px;
+    /* text-align: left; */
+}
+.tableContainer tbody td{
+    padding:5px
+}
+.table tbody tr:nth-of-type(even){
+    background: hsl(0 0% 0% / 0.1);
+}
+@media screen and (width<=748px) {
+    .tableContainer thead th{
+       display: none;
+    }   
+    .tableContainer tbody td{
+        display: grid;
+        grid-template-columns: 15ch auto;
+        gap:0.5rem
+    }
+    .tableContainer tbody tr td::before{
+        content:attr(data-cell) ":";
+        text-transform: capitalize;
+        font-weight: 700;
+    }
+    
+}
