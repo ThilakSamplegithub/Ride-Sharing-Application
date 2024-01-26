@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border:2px solid red;
+    border:0px solid red;
 }
 .tableContainer table thead th{
     padding:5px

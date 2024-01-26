@@ -1,23 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styles from "../Styles/driverPage.module.css"
 import { useDispatch } from "react-redux";
-import {
-  Table,
-  Thead,
-  Tbody,
-  Tfoot,
-  Tr,
-  Th,
-  Td,
-  TableCaption,
-  TableContainer,
-} from "@chakra-ui/react";
 import ConfirmTable from "../Components/ConfirmTable";
 import MapComponent from "../Components/MapComponent";
 const DriverPage = () => {
   const baseURL = process.env.REACT_APP_BASE_URL;
   const [passengers, setPassengers] = useState([]);
-  // const dispatch=useDispatch
 
   useEffect(() => {
     fetch(`${baseURL}driver/locations/${localStorage.getItem("driverId")}`, {
