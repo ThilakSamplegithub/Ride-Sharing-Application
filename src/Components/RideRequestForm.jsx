@@ -6,6 +6,7 @@ import {
   InputRightElement,
   IconButton,
   Button,
+  Heading,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
@@ -90,9 +91,9 @@ const RideRequestForm = () => {
       alignItems="center"
     >
       <div>
-        <h1 style={{ fontSize: "50px", marginBottom: "40px" }}>
+        <Heading fontSize={{sm:"40px",lg:"40px"}} mb={{sm:'20px',lg:"40px"}}>
           <b>Request a Ride Now</b>
-        </h1>
+        </Heading>
       </div>
       <InputGroup mt={4}>
         {/* <Input
