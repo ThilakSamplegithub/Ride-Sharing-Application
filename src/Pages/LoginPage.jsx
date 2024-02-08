@@ -35,7 +35,7 @@ export default function LoginPage() {
   const navigate = useNavigate();
   const location = useLocation();
   
-  console.log(location, "is");
+  // console.log(location, "is");
   const handleClick = (e) => {
     dispatch(handleLogin({ email, password }))
       .then((res) => {

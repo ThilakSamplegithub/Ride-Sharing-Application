@@ -23,7 +23,7 @@ function MainRoutes() {
         <Route path='/login' element={<LoginPage/>}></Route>
         <Route path="/driverLogin" element={<DriverLoginPage/>}></Route>
         <Route path='/driver' element={<Driver_PrivateRoute><DriverPage/></Driver_PrivateRoute>}></Route>
-        <Route path='/riderInfo' element={<RiderInfo/>}></Route>
+        <Route path='/riderInfo' element={<PrivateRoute><RiderInfo/></PrivateRoute>}></Route>
         <Route></Route>
     </Routes>
   );

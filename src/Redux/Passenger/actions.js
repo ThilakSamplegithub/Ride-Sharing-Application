@@ -10,7 +10,9 @@ export const handleRegister=(state)=>async(dispatch)=>{
 }
 export const handleLogin=({email,password})=>async(dispatch)=>{
    dispatch({type:PASSENGER_REQUEST})
+   console.log(email,password,'inside handleLogin')
     let res=await axios.post(`${baseurl}passenger/login`,{email,password})
+    console.log(res,'in actions')
     return res
 }
 export const handleRequest=(location)=>async(dispatch)=>{

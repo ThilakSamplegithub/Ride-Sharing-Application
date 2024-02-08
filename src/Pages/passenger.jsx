@@ -41,7 +41,9 @@ function Passenger() {
   const [date, setDate] = useState(new Date());
   const [updateStatus, setUpdateStatus] = useState(null);
   const handleSubmit = (event) => {
+    console.log('invoked request ride')
     event.preventDefault();
+    let id
     // setShowRides(true);
     console.log("Ride requested:", { pickup, destination, date });
     console.log(pickup, "inside to send as api");
@@ -52,9 +54,12 @@ function Passenger() {
                   console.log(res, "updated location");
                   dispatch({ type: PASSENGER_RIDE_REQUEST });
                 })
-                .then(()=>setTimeout(()=>navigate("/riderInfo"),1000))
-                .catch((err) => dispatch({ type: PASSENGER_FAILURE }));
+                .then(()=>{ id=setTimeout(()=>navigate("/riderInfo"),1000)})
+                .catch((err) =>{ console.log(err.message);dispatch({ type: PASSENGER_FAILURE })});
              // Delay for 1000 milliseconds (1 second)
+             return (()=>{
+              clearTimeout(id)
+             })
   };
   return (
     <div>
