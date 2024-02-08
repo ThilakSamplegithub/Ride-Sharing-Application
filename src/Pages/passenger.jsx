@@ -16,7 +16,7 @@ import {
   MenuList,
   MenuItem,
   Flex,
-  Select
+  Select,
 } from "@chakra-ui/react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -32,59 +32,67 @@ import MapComponent from "../Components/MapComponent";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { handleRequest } from "../Redux/Passenger/actions";
-import { PASSENGER_FAILURE, PASSENGER_RIDE_REQUEST } from "../Redux/Passenger/actionTypes";
+import {
+  PASSENGER_FAILURE,
+  PASSENGER_RIDE_REQUEST,
+} from "../Redux/Passenger/actionTypes";
 function Passenger() {
   const [pickup, setPickup] = useState("");
   const [destination, setDestination] = useState("");
   // const [showRides, setShowRides] = useState(false);
-  const dispatch=useDispatch()
-  const navigate=useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [date, setDate] = useState(new Date());
   const [updateStatus, setUpdateStatus] = useState(null);
   const handleSubmit = (event) => {
-    console.log('invoked request ride')
+    console.log("invoked request ride");
     event.preventDefault();
-    let id
+    let id;
     // setShowRides(true);
     console.log("Ride requested:", { pickup, destination, date });
     console.log(pickup, "inside to send as api");
-              // Redirect to the desired route
-              // window.location.href = "/riderInfo"; // Use window.location.href for redirection
-              dispatch(handleRequest({ location: pickup }))
-                .then((res) => {
-                  console.log(res, "updated location");
-                  dispatch({ type: PASSENGER_RIDE_REQUEST });
-                })
-                .then(()=>{ id=setTimeout(()=>navigate("/riderInfo"),1000)})
-                .catch((err) =>{ console.log(err.message);dispatch({ type: PASSENGER_FAILURE })});
-             // Delay for 1000 milliseconds (1 second)
-             return (()=>{
-              clearTimeout(id)
-             })
+    // Redirect to the desired route
+    // window.location.href = "/riderInfo"; // Use window.location.href for redirection
+    dispatch(handleRequest({ location: pickup }))
+      .then((res) => {
+        console.log(res, "updated location");
+        dispatch({ type: PASSENGER_RIDE_REQUEST });
+      })
+      .then(() => {
+        id = setTimeout(() => navigate("/riderInfo"), 1000);
+      })
+      .catch((err) => {
+        console.log(err.message);
+        dispatch({ type: PASSENGER_FAILURE });
+      });
+    // Delay for 1000 milliseconds (1 second)
+    return () => {
+      clearTimeout(id);
+    };
   };
   return (
     <div>
       <MapComponent />
       {/* {showRides && <Rides pickup={pickup} />} */}
-    <Container
+      <Container
         style={{
           // marginLeft: "70px",
-          marginLeft:"9%",
+          marginLeft: "9%",
           // marginTop: "60px",
-          marginTop:"7%",
+          marginTop: "7%",
           position: "absolute",
           backgroundColor: "white",
           zIndex: "1",
           borderRadius: "10px",
           // width: "350px",
-          width:'70%',
+          width: "70%",
           border: "2px solid black",
         }}
       >
         <Box style={{ borderRadius: "10px", width: "100%", padding: "8%" }}>
           <Heading>Where can we pick you up?</Heading>
           <form onSubmit={handleSubmit}>
-            <FormControl id="pickup" mt={'3%'}>
+            <FormControl id="pickup" mt={"3%"}>
               {/* <InputGroup>
                 <InputLeftElement pointerEvents="none">
                   <PlusSquareIcon
@@ -115,8 +123,14 @@ function Passenger() {
                   onChange={(e)=>{console.log(e.target.value,'is pickup');setPickup(e.target.value)}}
                 />
               </InputGroup> */}
-              <Select onChange={(e)=>{console.log(e.target.value);setPickup(e.target.value)}} placeholder='Add a pickup location'>
-              <option value="kondapur">Kondapur</option>
+              <Select
+                onChange={(e) => {
+                  console.log(e.target.value);
+                  setPickup(e.target.value);
+                }}
+                placeholder="Add a pickup location"
+              >
+                <option value="kondapur">Kondapur</option>
                 <option value="srnagar">SRNagar</option>
                 <option value="punjagutta">Punjagutta</option>
                 <option value="jubilee hills">Jubilee hills</option>
@@ -126,7 +140,7 @@ function Passenger() {
                 <option value="colaba">Colaba</option>
                 <option value="dadar">Dadar</option>
                 <option value="worli">Worli</option>
-</Select>
+              </Select>
             </FormControl>
 
             <FormControl id="destination" mt={"7%"}>
@@ -148,7 +162,7 @@ function Passenger() {
                   placeholder="Add a destination location"
                   style={{
                     // paddingLeft: "30px",
-                    paddingLeft:"9%",
+                    paddingLeft: "9%",
                     backgroundColor: "rgb(238,238,238)",
                     border: "none",
                     height: "30px",
@@ -156,7 +170,10 @@ function Passenger() {
                     borderRadius: "7px",
                     fontSize: "15px",
                   }}
-                  onChange={(e)=>{console.log(e.target.value,'is destiny');setDestination(e.target.value)}}
+                  onChange={(e) => {
+                    console.log(e.target.value, "is destiny");
+                    setDestination(e.target.value);
+                  }}
                 />
               </InputGroup>
             </FormControl>

@@ -170,7 +170,7 @@ function RiderInfo() {
                         size="sm"
                         onClick={() =>{setAction('confirmed');setTimeout(()=>navigate("/driverLogin"),2000)}}
                       >
-                        {action?'confirmed':"confirm"}
+                        confirm
                       </Button></td>
                     </tr>
                   )
