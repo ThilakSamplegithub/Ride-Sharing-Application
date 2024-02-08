@@ -33,7 +33,7 @@ const DriverLoginPage = () => {
           duration: 9000,
           isClosable: true,
         });
-        console.log(res.data,'is after login')
+        console.log(res,'is after login')
         localStorage.setItem("driver_token", res.data.token);
         localStorage.setItem("driverId",res.data.id)
         dispatch({ type: DRIVER_LOGIN_SUCCESS, payload: true });

@@ -209,7 +209,7 @@ export default function SignupPage() {
             <FormControl>
               <FormLabel>location</FormLabel>
               <Select
-                placeholder="Select option"
+                placeholder="Select location"
                 value={location}
                 onChange={(e) =>
                   dispatch({ type: actions.LOCATION, payload: e.target.value })

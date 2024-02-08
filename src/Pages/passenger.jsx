@@ -16,6 +16,7 @@ import {
   MenuList,
   MenuItem,
   Flex,
+  Select
 } from "@chakra-ui/react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -84,7 +85,7 @@ function Passenger() {
           <Heading>Where can we pick you up?</Heading>
           <form onSubmit={handleSubmit}>
             <FormControl id="pickup" mt={'3%'}>
-              <InputGroup>
+              {/* <InputGroup>
                 <InputLeftElement pointerEvents="none">
                   <PlusSquareIcon
                     style={{
@@ -113,7 +114,19 @@ function Passenger() {
                   }}
                   onChange={(e)=>{console.log(e.target.value,'is pickup');setPickup(e.target.value)}}
                 />
-              </InputGroup>
+              </InputGroup> */}
+              <Select onChange={(e)=>{console.log(e.target.value);setPickup(e.target.value)}} placeholder='Add a pickup location'>
+              <option value="kondapur">Kondapur</option>
+                <option value="srnagar">SRNagar</option>
+                <option value="punjagutta">Punjagutta</option>
+                <option value="jubilee hills">Jubilee hills</option>
+                <option value="dilshukhnagar">Dilshukhnagar</option>
+                <option value="andheri">Andheri</option>
+                <option value="bandra">Bandra</option>
+                <option value="colaba">Colaba</option>
+                <option value="dadar">Dadar</option>
+                <option value="worli">Worli</option>
+</Select>
             </FormControl>
 
             <FormControl id="destination" mt={"7%"}>

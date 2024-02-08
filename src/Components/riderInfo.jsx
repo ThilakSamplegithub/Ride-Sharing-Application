@@ -26,6 +26,7 @@ import { useNavigate } from "react-router-dom";
 
 function RiderInfo() {
   const { isStatus, driver } = useSelector((state) => state.passenger_reducer);
+  const [action,setAction]=useState(false)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
@@ -120,9 +121,9 @@ function RiderInfo() {
                         height: "20px",
                       }}
                       size="sm"
-                      onClick={() => navigate("/driverLogin")}
+                      
                     >
-                     confirm
+                     confirmed
                     </Button></td>
                     <td>A driver is on the way to pick you up</td>
                   </tr>
@@ -167,9 +168,9 @@ function RiderInfo() {
                           height: "20px",
                         }}
                         size="sm"
-                        onClick={() => navigate("/driverLogin")}
+                        onClick={() =>{setAction('confirmed');setTimeout(()=>navigate("/driverLogin"),2000)}}
                       >
-                        Track
+                        {action?'confirmed':"confirm"}
                       </Button></td>
                     </tr>
                   )
