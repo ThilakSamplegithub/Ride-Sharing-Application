@@ -1,5 +1,6 @@
 import axios from "axios"
 import { PASSENGER_LOGINSUCCESS, PASSENGER_REQUEST, PASSENGER_SUCCESS } from "./actionTypes"
+
 const baseurl=`${process.env.REACT_APP_BASE_URL}`
 export const handleRegister=(state)=>async(dispatch)=>{
     console.log(baseurl,"is baseurl")

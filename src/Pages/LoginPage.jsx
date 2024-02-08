@@ -36,7 +36,7 @@ export default function LoginPage() {
   const location = useLocation();
 
   // console.log(location, "is");
-  const handleClick = async (e) => {
+  const handleClick = (e) => {
     let id
     dispatch(handleLogin({ email, password }))
       .then((res) => {
@@ -74,10 +74,10 @@ export default function LoginPage() {
           isClosable: true,
         });
         dispatch({ type: PASSENGER_FAILURE });
+        return ()=>{
+          clearTimeout(id)
+        }
       });
-      return ()=>{
-        clearTimeout(id)
-      }
   };
   return (
     <Stack
