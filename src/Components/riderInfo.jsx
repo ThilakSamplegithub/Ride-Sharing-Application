@@ -122,7 +122,7 @@ function RiderInfo() {
                       size="sm"
                       onClick={() => navigate("/driverLogin")}
                     >
-                      Track
+                     confirm
                     </Button></td>
                     <td>A driver is on the way to pick you up</td>
                   </tr>
