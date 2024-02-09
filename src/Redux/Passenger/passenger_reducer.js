@@ -42,7 +42,7 @@ switch(type){
         return {...state,isLoading:false,isStatus:false}
     }
     case PASSENGER_LOGOUT:{
-        return {...state,isLoading:false,isAuth2:false}
+        return {...state,isLoading:false,isAuth2:false,isError:false}
     }
     default:{
         return state

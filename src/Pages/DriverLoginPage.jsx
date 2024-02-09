@@ -11,47 +11,63 @@ import {
 } from "@chakra-ui/react";
 import { Icon } from "@chakra-ui/icons";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { handleDriverLogin } from "../Redux/Rider/actions";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { DRIVER_FAILURE, DRIVER_LOGIN_SUCCESS } from "../Redux/Rider/actionTypes";
+import {
+  DRIVER_FAILURE,
+  DRIVER_LOGIN_SUCCESS,
+} from "../Redux/Rider/actionTypes";
+import styles from "../Styles/driverLoginPage.module.css";
 const DriverLoginPage = () => {
-    const toast = useToast()
+  const toast = useToast();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
   console.log(location, "is");
+  const { isLoading, isError } = useSelector((state) => state.driver_reducer);
   const handleClick = (e) => {
-    dispatch(handleDriverLogin({ email, password }))
+    dispatch(handleDriverLogin({ email: email.toLowerCase(), password: "123" }))
       .then((res) => {
         toast({
-          title: 'Login success',
+          title: "Login success",
           // description: "We've created your account for you.",
-          status: 'success',
+          status: "success",
           duration: 9000,
           isClosable: true,
         });
-        console.log(res,'is after login')
+        console.log(res, "is after login");
         localStorage.setItem("driver_token", res.data.token);
-        localStorage.setItem("driverId",res.data.id)
+        localStorage.setItem("driverId", res.data.id);
         dispatch({ type: DRIVER_LOGIN_SUCCESS, payload: true });
-        navigate(location.state==='/driver'?location.state:'/driver',{replace:true});
+        navigate(location.state === "/driver" ? location.state : "/driver", {
+          replace: true,
+        });
       })
-      .catch((err) =>{ toast({
-        title: 'Login failed',
-        description: "We've created your account for you.",
-        status: 'success',
-        duration: 9000,
-        isClosable: true,
-      });dispatch({ type: DRIVER_FAILURE })});
+      .catch((err) => {
+        toast({
+          title: "Login failed",
+          description: "We've created your account for you.",
+          status: "success",
+          duration: 9000,
+          isClosable: true,
+        });
+        dispatch({ type: DRIVER_FAILURE });
+      });
   };
-  return (
-    <Stack w={{ base:"250px",sm:"300px", md: 300 }} border={'0px solid red'} margin={"auto"} transform={"translate(0%,50%)"} gap={5}>
+  return  (
+    <Stack
+      w={{ base: "250px", sm: "300px", md: 300 }}
+      border={"0px solid red"}
+      margin={"auto"}
+      transform={"translate(0%,50%)"}
+      gap={5}
+    >
       <Heading>Driver Login</Heading>
       <u></u>
-      <Text >
+      <Text>
         Email Address
         <Icon height={3} width={3} viewBox="0 0 24 24" color="red.500">
           <path
@@ -97,8 +113,10 @@ const DriverLoginPage = () => {
           Sign up
         </Link>
       </Text>
+      {/* {isLoading && <span className={styles.loader}></span>} */}
+  
     </Stack>
   );
-}
+};
 
-export default DriverLoginPage
+export default DriverLoginPage;

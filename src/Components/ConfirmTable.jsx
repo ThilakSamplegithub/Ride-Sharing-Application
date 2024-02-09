@@ -1,34 +1,39 @@
 import React, { useState } from "react";
 
-import styles from "../Styles/confirmTable.module.css"
+import styles from "../Styles/confirmTable.module.css";
 import { useDispatch } from "react-redux";
-import { handleStatus } from "../Redux/Rider/actions";
-const ConfirmTable = ({ _id, name, phoneNumber, i, driverId, status }) =>{ 
+import {
+  driverLogout,
+  driverLogoutActionCreator,
+  handleStatus,
+} from "../Redux/Rider/actions";
+import { DRIVER_FAILURE } from "../Redux/Rider/actionTypes";
+const ConfirmTable = ({ _id, name, phoneNumber, i, driverId, status }) => {
   const [isChecked, setIsChecked] = useState(false);
-  const [coloring,setColor]=useState(false)
+  const [coloring, setColor] = useState(false);
   const id = String(_id);
-  const driver_id=String(driverId)
-  const dispatch = useDispatch()
+  const driver_id = String(driverId);
+  const dispatch = useDispatch();
   const toggleColor = () => {
-    dispatch(handleStatus(id, { driverId:driver_id, status: true }))
-    .then((res) => res.json())
-    .then((res) => {console.log(res);
-    if(!i%2){
-      setColor('hsl(0 0% 0% / 0.1)')
-    }else{
-      setColor(null)
-    }
-    })
-    .catch((err) => console.log(err.message));
+    dispatch(handleStatus(id, { driverId: driver_id, status: true }))
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err.message));
     setIsChecked(!isChecked);
   };
-  console.log(styles.tableBody,'is inside confirmTable')
+  console.log(styles.tableBody, "is inside confirmTable");
   return (
-    <tr className={styles.tableBody} >
-           <td>{i + 1}</td>
+    <tr className={styles.tableBody}>
+      <td>{i + 1}</td>
       <td data-cell="name">{name}</td>
       <td data-cell="phoneNumber">{phoneNumber}</td>
-      <td data-cell="confirmation" style={{cursor:"pointer"}} onClick={() => toggleColor()}>
+      <td
+        data-cell="confirmation"
+        style={{ cursor: "pointer" }}
+        onClick={() => toggleColor()}
+      >
         {isChecked ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -71,9 +76,6 @@ const ConfirmTable = ({ _id, name, phoneNumber, i, driverId, status }) =>{
         )}
       </td>
     </tr>
-    
   );
-  }
-;
-
+};
 export default ConfirmTable;

@@ -66,9 +66,6 @@ function Passenger() {
         dispatch({ type: PASSENGER_FAILURE });
       });
     // Delay for 1000 milliseconds (1 second)
-    return () => {
-      clearTimeout(id);
-    };
   };
   return (
     <div>
@@ -93,36 +90,6 @@ function Passenger() {
           <Heading>Where can we pick you up?</Heading>
           <form onSubmit={handleSubmit}>
             <FormControl id="pickup" mt={"3%"}>
-              {/* <InputGroup>
-                <InputLeftElement pointerEvents="none">
-                  <PlusSquareIcon
-                    style={{
-                      color: "black",
-                      fontSize: "7px",
-                      border: "2px solid",
-                      borderRadius: "1px",
-                      // marginLeft: "-10px",
-                      marginLeft:"-20%",
-                      marginTop: "-10px",
-                    }}
-                  />
-                </InputLeftElement>
-                <Input
-                  type="pickup"
-                  placeholder="Add a pickup location"
-                  style={{
-                    // paddingLeft: "30px",
-                    paddingLeft:"10%",
-                    backgroundColor: "rgb(238,238,238)",
-                    border: "none",
-                    height: "30px",
-                    // width: "100%",
-                    borderRadius: "7px",
-                    fontSize: "15px",
-                  }}
-                  onChange={(e)=>{console.log(e.target.value,'is pickup');setPickup(e.target.value)}}
-                />
-              </InputGroup> */}
               <Select
                 onChange={(e) => {
                   console.log(e.target.value);

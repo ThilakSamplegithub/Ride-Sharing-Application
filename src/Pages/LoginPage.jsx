@@ -15,7 +15,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { Icon } from "@chakra-ui/icons";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { handleLogin } from "../Redux/Passenger/actions";
 import {
@@ -34,11 +34,9 @@ export default function LoginPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-
   // console.log(location, "is");
   const handleClick = (e) => {
-    let id
-    dispatch(handleLogin({ email, password }))
+    dispatch(handleLogin({ email:email.toLowerCase(), password }))
       .then((res) => {
         toast({
           title: "Login success",
@@ -47,7 +45,7 @@ export default function LoginPage() {
           duration: 9000,
           isClosable: true,
         });
-        console.log(res.data.token, "is after login");
+        console.log(res, "is after login");
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("passengerId", res.data.id);
         dispatch({
@@ -55,7 +53,7 @@ export default function LoginPage() {
           payload: true,
           payload2: res,
         });
-        id=setTimeout(
+        setTimeout(
           () =>{
             navigate(
               location.state === "/passenger" ? location.state : "/passenger",
@@ -74,9 +72,6 @@ export default function LoginPage() {
           isClosable: true,
         });
         dispatch({ type: PASSENGER_FAILURE });
-        return ()=>{
-          clearTimeout(id)
-        }
       });
   };
   return (

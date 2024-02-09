@@ -89,7 +89,7 @@ export default function WithSubnavigation() {
             }}>
             Sign Up
           </Button></RouterLink>
-          <Box mr={{base:"0px",md:"0px"}} border={'0px solid red'}><Logout/></Box>
+          <Box mr={{base:"0px",md:"0px"}} border={'0px solid red'} zIndex={3}><Logout/></Box>
         </Stack>
       </Flex>
 

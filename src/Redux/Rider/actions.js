@@ -1,8 +1,9 @@
-import { DRIVER_REQUEST } from "./actionTypes"
+import { DRIVER_LOGOUT, DRIVER_REQUEST } from "./actionTypes"
 import axios from "axios"
 const baseURL=process.env.REACT_APP_BASE_URL
 export const handleDriverLogin=(data)=>async(dispatch)=>{
   dispatch({type:DRIVER_REQUEST})
+  console.log(data,'in drvers action')
   let res=await axios.post(`${baseURL}driver/login`,data)
   return res
   }
@@ -29,3 +30,7 @@ export const driverLogout=()=>async(dispatch)=>{
   let data=await res.json()
   return data
   }
+export const driverLogoutActionCreator=()=>{
+  console.log('inside logout')
+  return {type:DRIVER_LOGOUT}
+}

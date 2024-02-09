@@ -2,6 +2,7 @@ import axios from "axios"
 import { PASSENGER_LOGINSUCCESS, PASSENGER_REQUEST, PASSENGER_SUCCESS } from "./actionTypes"
 
 const baseurl=`${process.env.REACT_APP_BASE_URL}`
+console.log(baseurl)
 export const handleRegister=(state)=>async(dispatch)=>{
     console.log(baseurl,"is baseurl")
     dispatch({type:PASSENGER_REQUEST})
@@ -14,6 +15,8 @@ export const handleLogin=({email,password})=>async(dispatch)=>{
    console.log(email,password,'inside handleLogin')
     let res=await axios.post(`${baseurl}passenger/login`,{email,password})
     console.log(res,'in actions')
+    // localStorage.setItem("token", res.data.token);
+    //   localStorage.setItem("passengerId", res.data.id);
     return res
 }
 export const handleRequest=(location)=>async(dispatch)=>{

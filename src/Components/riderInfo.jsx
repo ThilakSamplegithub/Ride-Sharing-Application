@@ -150,28 +150,6 @@ function RiderInfo() {
                       phoneNumber={phoneNumber}
                       email={email}
                     />
-                    // <tr
-                    //   key={i}
-                    // >
-                    //   <td data-cell='name'>{name}</td>
-                    //   <td data-cell='phoneNumber'>{phoneNumber}</td>
-                    //   <td data-cell='carModel'>{carModel}</td>
-                    //   <td data-cell='location'>{location}</td>
-                    //   <td data-cell='email'>{email}</td>
-                    //   <td data-cell='price'>300</td>
-                    //   <td data-cell='action'><Button
-                    //     style={{
-                    //       border: "none",
-                    //       borderRadius: "3px",
-                    //       backgroundColor: "greenyellow",
-                    //       height: "20px",
-                    //     }}
-                    //     size="sm"
-                    //     onClick={() =>{setAction('confirmed');setTimeout(()=>navigate("/driverLogin"),2000)}}
-                    //   >
-                    //     confirm
-                    //   </Button></td>
-                    // </tr>
                   )
                 )}
               </tbody>
