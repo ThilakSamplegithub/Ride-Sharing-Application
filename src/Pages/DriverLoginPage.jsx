@@ -47,9 +47,10 @@ const DriverLoginPage = () => {
         });
       })
       .catch((err) => {
+        console.log(err.response.data.msg)
         toast({
           title: "Login failed",
-          description: "We've created your account for you.",
+          description: err.response.data.msg,
           status: "success",
           duration: 9000,
           isClosable: true,

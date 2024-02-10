@@ -10,6 +10,7 @@ import {
   Th,
   Td,
   background,
+  useToast
 } from "@chakra-ui/react";
 import styles from "../Styles/riderInfo.module.css";
 import "react-datepicker/dist/react-datepicker.css";
@@ -29,6 +30,7 @@ function RiderInfo() {
   const { isStatus, driver } = useSelector((state) => state.passenger_reducer);
   const [action, setAction] = useState(false);
   const dispatch = useDispatch();
+  const toast =useToast()
   const { passengerId, token } = useSelector(
     (state) => state.passenger_reducer
   );
@@ -47,6 +49,13 @@ function RiderInfo() {
     if (isStatus) {
       console.log("entered to default", isStatus);
       const timeoutId = setTimeout(() => {
+        toast({
+          title: 'Congratulations! Your request has been fulfilled',
+          description: "You've reached your destination! We hope you had a great experience. Feel free to explore more on our website",
+          status: 'success',
+          duration: 9000,
+          isClosable: true,
+        })
         dispatch(defaultRequest())
           .then((res) => {
             dispatch({ type: PASSENGER_DROPPED });

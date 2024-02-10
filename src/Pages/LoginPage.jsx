@@ -64,9 +64,10 @@ export default function LoginPage() {
         // navigate(location.state==="/passenger"?location.state:'/passenger',{replace:true});
       })
       .catch((err) => {
+        console.log(err);
         toast({
           title: "Login failed",
-          description: "We've created your account for you.",
+          description: err.response.data.msg,
           status: "success",
           duration: 9000,
           isClosable: true,

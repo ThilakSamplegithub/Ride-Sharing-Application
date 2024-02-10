@@ -8,11 +8,13 @@ import {
   handleStatus,
 } from "../Redux/Rider/actions";
 import { DRIVER_FAILURE } from "../Redux/Rider/actionTypes";
+import { useNavigate } from "react-router-dom";
 const ConfirmTable = ({ _id, name, phoneNumber, i, driverId, status }) => {
   const [isChecked, setIsChecked] = useState(false);
   const [coloring, setColor] = useState(false);
   const id = String(_id);
   const driver_id = String(driverId);
+  const navigate=useNavigate()
   const dispatch = useDispatch();
   const toggleColor = () => {
     dispatch(handleStatus(id, { driverId: driver_id, status: true }))
@@ -22,6 +24,7 @@ const ConfirmTable = ({ _id, name, phoneNumber, i, driverId, status }) => {
       })
       .catch((err) => console.log(err.message));
     setIsChecked(!isChecked);
+    setTimeout(()=>navigate("/riderInfo"),1000)
   };
   console.log(styles.tableBody, "is inside confirmTable");
   return (

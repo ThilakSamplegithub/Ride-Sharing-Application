@@ -15,10 +15,11 @@ import {
   Text,
   useColorModeValue,
   Link,
-  Select,useToast
+  Select,
+  useToast,
 } from "@chakra-ui/react";
 import { handleRegister } from "../Redux/Passenger/actions";
-import { useState, useReducer,useEffect } from "react";
+import { useState, useReducer, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import {
@@ -73,52 +74,65 @@ const reducer = (state = initialState, { type, payload }) => {
   }
 };
 export default function SignupPage() {
-  const navigate=useNavigate()
-  const toast= useToast()
+  const navigate = useNavigate();
+  const toast = useToast();
   const [showPassword, setShowPassword] = useState(false);
-  const {isLoading,isError}=useSelector(state=>state.passenger_reducer)
-  console.log(isLoading,'is loadingstate')
+  const { isLoading, isError } = useSelector(
+    (state) => state.passenger_reducer
+  );
+  console.log(isLoading, "is loadingstate");
   const [state, dispatch] = useReducer(reducer, initialState);
   const dispatch2 = useDispatch();
   const { name, email, password, gender, phoneNumber, location } = state;
   console.log(state, "is state outside function");
-  const[isValid,setIsvalid]=useState(`Password is not valid`)
-  function validatePassword(password){
-    console.log('inside validate password')
-    if(password.length<6){
-      setIsvalid(`Password must be minimum of 6 characters`)
-    }else if(!/[A-Z]/.test(password)){
-      setIsvalid(`password must contain atleast 1 uppercase character`)
-    }else if(!/[a-z]/.test(password)){
-      setIsvalid(`password must contain atleast 1 lowercase character`)
-    }else if(!/[0-9]/.test(password)){
-      setIsvalid(`password must contain atleast singl number from 0 to 9`)
-    }else if(!/[!@$#%6&*()_+\-]/.test(password)){
-      setIsvalid(`password must contain atleast 1 special character`)
-    }else{
-      setIsvalid(`password is valid`)
+  const [isValid, setIsvalid] = useState(`Password is not valid`);
+  function validatePassword(password) {
+    console.log("inside validate password");
+    if (password.length < 6) {
+      setIsvalid(`Password must be minimum of 6 characters`);
+    } else if (!/[A-Z]/.test(password)) {
+      setIsvalid(`password must contain atleast 1 uppercase character`);
+    } else if (!/[a-z]/.test(password)) {
+      setIsvalid(`password must contain atleast 1 lowercase character`);
+    } else if (!/[0-9]/.test(password)) {
+      setIsvalid(`password must contain atleast singl number from 0 to 9`);
+    } else if (!/[!@$#%6&*()_+\-]/.test(password)) {
+      setIsvalid(`password must contain atleast 1 special character`);
+    } else {
+      setIsvalid(`password is valid`);
     }
   }
-   useEffect(()=>{
-    console.log('invoked me')
-    validatePassword(password)
-   },[password])
+  useEffect(() => {
+    console.log("invoked me");
+    validatePassword(password);
+  }, [password]);
   function handlPost(e) {
-    console.log('function invoked')
+    console.log("function invoked");
     console.log(e);
     e.preventDefault();
-    console.log(state,'inside function');
+    console.log(state, "inside function");
     dispatch2(handleRegister(state))
-      .then((res) =>{ toast({
-        title: 'User Registered!!',
-        status: 'success',
-        position: 'bottom-right',
-        duration: 3000,
+      .then((res) => {
+        toast({
+          title: "User Registered!!",
+          status: "success",
+          position: "bottom-right",
+          duration: 3000,
+          isClosable: true,
+        });
+        dispatch2({ type: PASSENGER_SUCCESS, payload: res.data.passenger });
+        dispatch({ type: actions.RESET });
+        navigate("/login");
+      })
+      .catch((err) =>{ console.log(err);toast({
+        title: "Signup failed",
+        description: err.response.data,
+        status: "success",
+        duration: 9000,
         isClosable: true,
-      });dispatch2({ type: PASSENGER_SUCCESS,payload:res.data.passenger});dispatch({ type: actions.RESET });navigate("/login")})
-      .catch((err) => dispatch2({ type: PASSENGER_FAILURE }));
+      });dispatch2({ type: PASSENGER_FAILURE })});
   }
-  return  (
+  return (
     <Flex
       minH={"100vh"}
       align={"center"}
@@ -254,11 +268,14 @@ export default function SignupPage() {
               >
                 Sign up
               </Button>
-              { isLoading && <Signup_loader/>}
+              {isLoading && <Signup_loader />}
             </Stack>
             <Stack pt={6}>
-              <Text align={"center"} >
-                Already a user? <RouterLink to={"/login"}  ><Box color={"blue.500"}>Login</Box></RouterLink>
+              <Text align={"center"}>
+                Already a user?{" "}
+                <RouterLink to={"/login"}>
+                  <Box color={"blue.500"}>Login</Box>
+                </RouterLink>
               </Text>
             </Stack>
           </Stack>
