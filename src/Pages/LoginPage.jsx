@@ -67,7 +67,7 @@ export default function LoginPage() {
         console.log(err);
         toast({
           title: "Login failed",
-          description: err.response.data.msg,
+          description: err?.response?.data.msg,
           status: "success",
           duration: 9000,
           isClosable: true,
